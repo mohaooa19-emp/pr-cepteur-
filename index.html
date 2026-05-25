@@ -17,7 +17,7 @@
     <style>
         /* ============================================
            MOBILE-FIRST LANDING PAGE - PRÉCEPTEUR
-           Version améliorée avec test interactif
+           Version améliorée avec tests diagnostiques
            ============================================ */
 
         * {
@@ -130,10 +130,6 @@
             box-shadow: var(--shadow-md);
         }
 
-        .btn-primary:hover {
-            box-shadow: var(--shadow-md);
-        }
-
         .btn-secondary {
             background: var(--bg-light);
             color: var(--primary);
@@ -149,7 +145,6 @@
         .btn-accent {
             background: var(--accent);
             color: var(--white);
-            box-shadow: var(--shadow-sm);
         }
 
         .btn-accent:active {
@@ -165,6 +160,12 @@
             padding: 16px 28px;
             font-size: 1rem;
             border-radius: 10px;
+        }
+
+        .btn-sm {
+            padding: 10px 16px;
+            font-size: 0.85rem;
+            border-radius: 6px;
         }
 
         .navbar {
@@ -287,10 +288,6 @@
             font-weight: 500;
         }
 
-        .problems {
-            background: var(--white);
-        }
-
         .section-title {
             font-size: 1.5rem;
             font-weight: 700;
@@ -306,56 +303,149 @@
             margin-bottom: 2rem;
         }
 
-        .problems-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-        }
-
-        .problem-card {
-            background: var(--bg-light);
-            padding: 1.25rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.2s ease;
-        }
-
-        .problem-card:active {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .problem-icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-            display: block;
-        }
-
-        .problem-card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        .problem-card p {
-            font-size: 0.9rem;
-            margin-bottom: 0;
-        }
-
-        /* Test Section */
-        .test-section {
+        /* DIAGNOSTIC TESTS SECTION */
+        .diagnostic-section {
             background: linear-gradient(135deg, #E8F0FF 0%, #F5F7FA 100%);
         }
 
-        .test-container {
-            max-width: 100%;
+        .diagnostic-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 2rem;
         }
 
-        .test-card {
+        .diagnostic-card {
             background: var(--white);
             border-radius: 12px;
             padding: 1.5rem;
             box-shadow: var(--shadow-md);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .diagnostic-card:active {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .diagnostic-header {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .diagnostic-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .diagnostic-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .diagnostic-info p {
+            font-size: 0.85rem;
+            margin-bottom: 0;
+            color: var(--text-light);
+        }
+
+        .diagnostic-features {
+            list-style: none;
+            margin-bottom: 1.25rem;
+            padding-left: 0;
+        }
+
+        .diagnostic-features li {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            padding: 0.35rem 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .diagnostic-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .diagnostic-button {
+            width: 100%;
+        }
+
+        /* TEST MODAL STYLES */
+        .test-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 3000;
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+
+        .test-overlay.active {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .test-modal {
+            background: var(--white);
+            border-radius: 16px 16px 0 0;
+            padding: 2rem;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: var(--shadow-lg);
+            animation: slideUp 0.3s ease;
+            margin-top: auto;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .test-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-light);
+        }
+
+        .test-header h2 {
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        .test-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .test-progress {
@@ -374,6 +464,10 @@
 
         .test-progress-bar.active {
             background: var(--primary);
+        }
+
+        .test-content {
+            min-height: 300px;
         }
 
         .test-question {
@@ -396,7 +490,7 @@
 
         .test-option {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             padding: 12px;
             border: 2px solid var(--border-light);
             border-radius: 8px;
@@ -416,8 +510,18 @@
             width: 20px;
             height: 20px;
             margin-right: 12px;
+            margin-top: 2px;
             cursor: pointer;
             accent-color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .test-option input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            font-family: inherit;
         }
 
         .test-option.selected {
@@ -432,37 +536,24 @@
         }
 
         .test-result {
-            display: none;
             background: var(--bg-light);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 12px;
             text-align: center;
-            animation: slideUp 0.3s ease;
-        }
-
-        .test-result.show {
-            display: block;
         }
 
         .test-score {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 0.5rem;
         }
 
-        .test-score-label {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-        }
-
-        .test-message {
-            font-size: 1rem;
+        .test-result-message {
+            font-size: 0.95rem;
             line-height: 1.6;
             color: var(--text-dark);
             margin-bottom: 1.5rem;
-            font-weight: 500;
         }
 
         .test-buttons {
@@ -471,20 +562,64 @@
             gap: 12px;
         }
 
-        /* Method Section */
-        .method {
+        .test-timer {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* EXISTING SECTIONS */
+        .problems {
             background: var(--white);
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .problem-card {
+            background: var(--bg-light);
+            padding: 1.25rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .problem-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .problem-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .problem-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .method {
+            background: linear-gradient(135deg, #E8F0FF 0%, #F5F7FA 100%);
         }
 
         .method-steps {
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
-            position: relative;
         }
 
         .method-step {
-            background: var(--bg-light);
+            background: var(--white);
             padding: 1.5rem;
             border-radius: 12px;
             border-left: 4px solid var(--accent);
@@ -494,9 +629,9 @@
         }
 
         .method-step:nth-child(1) { animation-delay: 0.1s; }
-        .method-step:nth-child(2) { animation-delay: 0.2s; }
-        .method-step:nth-child(3) { animation-delay: 0.3s; }
-        .method-step:nth-child(4) { animation-delay: 0.4s; }
+        .method-step:nth-child(3) { animation-delay: 0.2s; }
+        .method-step:nth-child(5) { animation-delay: 0.3s; }
+        .method-step:nth-child(7) { animation-delay: 0.4s; }
 
         @keyframes fadeInUp {
             from {
@@ -534,9 +669,8 @@
             font-weight: bold;
         }
 
-        /* Features Section */
         .features {
-            background: linear-gradient(135deg, #F5F7FA 0%, #E8F0FF 100%);
+            background: var(--white);
         }
 
         .features-grid {
@@ -546,7 +680,7 @@
         }
 
         .feature-card {
-            background: var(--white);
+            background: var(--bg-light);
             padding: 1.5rem;
             border-radius: 10px;
             text-align: center;
@@ -563,9 +697,8 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Offers Section */
         .offers {
-            background: var(--white);
+            background: linear-gradient(135deg, #F5F7FA 0%, #E8F0FF 100%);
         }
 
         .offers-grid {
@@ -640,9 +773,8 @@
             margin-top: 1rem;
         }
 
-        /* Testimonials */
         .testimonials {
-            background: linear-gradient(135deg, #E8F0FF 0%, #F5F7FA 100%);
+            background: var(--white);
         }
 
         .testimonials-grid {
@@ -652,7 +784,7 @@
         }
 
         .testimonial-card {
-            background: var(--white);
+            background: var(--bg-light);
             padding: 1.25rem;
             border-radius: 10px;
             box-shadow: var(--shadow-sm);
@@ -683,9 +815,8 @@
             color: var(--text-light);
         }
 
-        /* FAQ */
         .faq {
-            background: var(--white);
+            background: linear-gradient(135deg, #E8F0FF 0%, #F5F7FA 100%);
         }
 
         .faq-list {
@@ -695,7 +826,7 @@
         }
 
         .faq-item {
-            background: var(--bg-light);
+            background: var(--white);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow-sm);
@@ -753,7 +884,6 @@
             }
         }
 
-        /* CTA Section */
         .cta {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: var(--white);
@@ -771,7 +901,6 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Form */
         .form-section {
             background: var(--white);
             padding-bottom: 4rem;
@@ -891,7 +1020,6 @@
             margin-top: 1.5rem;
         }
 
-        /* Footer */
         .footer {
             background: var(--text-dark);
             color: var(--white);
@@ -940,7 +1068,6 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
-        /* WhatsApp Button */
         .whatsapp-btn {
             position: fixed;
             bottom: 20px;
@@ -973,7 +1100,6 @@
             50% { opacity: 0.7; }
         }
 
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -998,17 +1124,6 @@
             border-radius: 16px 16px 0 0;
             box-shadow: var(--shadow-lg);
             animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
         }
 
         .modal-header {
@@ -1040,7 +1155,6 @@
             margin-top: 1rem;
         }
 
-        /* Responsive */
         @media (min-width: 640px) {
             .container {
                 padding: 0 24px;
@@ -1065,6 +1179,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .diagnostic-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .method-steps {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1086,14 +1204,21 @@
                 margin: 0 auto;
             }
 
-            .test-options {
-                grid-template-columns: repeat(2, 1fr);
+            .test-modal {
+                border-radius: 16px;
+                margin-top: 0;
+                max-height: 90vh;
+                overflow-y: auto;
             }
         }
 
         @media (min-width: 1024px) {
             .problems-grid,
             .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .diagnostic-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
 
@@ -1113,10 +1238,6 @@
             .form-container {
                 max-width: 600px;
                 margin: 0 auto;
-            }
-
-            .test-options {
-                grid-template-columns: repeat(3, 1fr);
             }
         }
 
@@ -1148,7 +1269,7 @@
                 
                 <div class="hero-buttons">
                     <a href="#booking" class="btn btn-primary btn-lg btn-block">Réserver Diagnostic Gratuit</a>
-                    <a href="#test" class="btn btn-secondary btn-lg btn-block">Faire le Test Gratuit</a>
+                    <a href="#tests" class="btn btn-secondary btn-lg btn-block">Faire les Tests Diagnostiques</a>
                 </div>
 
                 <div class="hero-stats">
@@ -1164,6 +1285,70 @@
                         <div class="stat-number">1 an</div>
                         <div class="stat-label">Qualité</div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diagnostic Tests Section -->
+    <section class="diagnostic-section" id="tests">
+        <div class="container">
+            <h2 class="section-title">Tests Diagnostiques Gratuits</h2>
+            <p class="section-subtitle">Évaluez le niveau réel de votre enfant en ligne</p>
+            
+            <div class="diagnostic-grid">
+                <!-- CP1 Test -->
+                <div class="diagnostic-card" onclick="openTest('cp1')">
+                    <div class="diagnostic-header">
+                        <div class="diagnostic-icon">📖</div>
+                        <div class="diagnostic-info">
+                            <h3>CP1 - Lecture/Écriture</h3>
+                            <p>Reconnaissance alphabétique & fluence</p>
+                        </div>
+                    </div>
+                    <ul class="diagnostic-features">
+                        <li>Lecture de l'alphabet chronométrée</li>
+                        <li>Reconnaissance et écriture de lettres</li>
+                        <li>Lecture syllabique</li>
+                        <li>Score instant: /20 points</li>
+                    </ul>
+                    <button class="btn btn-primary btn-block diagnostic-button">Commencer le Test</button>
+                </div>
+
+                <!-- CP2 Test -->
+                <div class="diagnostic-card" onclick="openTest('cp2')">
+                    <div class="diagnostic-header">
+                        <div class="diagnostic-icon">📚</div>
+                        <div class="diagnostic-info">
+                            <h3>CP2 - Lecture Avancée</h3>
+                            <p>Lecture syllabique & compréhension</p>
+                        </div>
+                    </div>
+                    <ul class="diagnostic-features">
+                        <li>Lecture syllabique progressive</li>
+                        <li>Lecture de mots & conventions</li>
+                        <li>Fluence de lecture</li>
+                        <li>Score instant: /35 points</li>
+                    </ul>
+                    <button class="btn btn-primary btn-block diagnostic-button">Commencer le Test</button>
+                </div>
+
+                <!-- CM1-CM2 French Test -->
+                <div class="diagnostic-card" onclick="openTest('cm')">
+                    <div class="diagnostic-header">
+                        <div class="diagnostic-icon">✍️</div>
+                        <div class="diagnostic-info">
+                            <h3>CM1-CM2 - Français</h3>
+                            <p>Grammaire, conjugaison & analyse</p>
+                        </div>
+                    </div>
+                    <ul class="diagnostic-features">
+                        <li>Types et formes de phrases</li>
+                        <li>Espèces de mots & analyse logique</li>
+                        <li>Conjugaison & temps verbaux</li>
+                        <li>Score instant: /40 points</li>
+                    </ul>
+                    <button class="btn btn-primary btn-block diagnostic-button">Commencer le Test</button>
                 </div>
             </div>
         </div>
@@ -1205,30 +1390,6 @@
                     <span class="problem-icon">❓</span>
                     <h3>Approche Inadéquate</h3>
                     <p>Les méthodes générales ne conviennent pas.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Test Section -->
-    <section class="test-section" id="test">
-        <div class="container">
-            <h2 class="section-title">Votre enfant a-t-il besoin d'un accompagnement ?</h2>
-            <p class="section-subtitle">Faites le test gratuit en 2 minutes</p>
-            
-            <div class="test-card">
-                <div class="test-progress" id="testProgress"></div>
-                
-                <div id="testQuestions"></div>
-                
-                <div id="testResult" class="test-result">
-                    <div class="test-score" id="testScore">0</div>
-                    <div class="test-score-label">Votre score sur 100</div>
-                    <div class="test-message" id="testMessage"></div>
-                    <div class="test-buttons">
-                        <a href="#booking" class="btn btn-primary btn-lg btn-block">Réserver mon diagnostic gratuit</a>
-                        <button onclick="resetTest()" class="btn btn-secondary btn-lg btn-block">Refaire le test</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1599,7 +1760,7 @@
                 <h4>Navigation</h4>
                 <ul>
                     <li><a href="#hero">Accueil</a></li>
-                    <li><a href="#method">Notre Méthode</a></li>
+                    <li><a href="#tests">Tests Diagnostiques</a></li>
                     <li><a href="#booking">Réserver</a></li>
                 </ul>
             </div>
@@ -1612,6 +1773,22 @@
 
     <!-- WhatsApp Button -->
     <button class="whatsapp-btn" onclick="openWhatsApp()" title="Contactez-nous sur WhatsApp">💬</button>
+
+    <!-- Test Modal -->
+    <div class="test-overlay" id="testOverlay">
+        <div class="test-modal" id="testModal">
+            <div class="test-header">
+                <h2 id="testTitle">Test Diagnostique</h2>
+                <button class="test-close" onclick="closeTest()">✕</button>
+            </div>
+            <div class="test-progress" id="testProgressBar"></div>
+            <div class="test-content" id="testContent"></div>
+            <div class="test-buttons" id="testButtons" style="display: flex; gap: 12px; margin-top: 2rem;">
+                <button class="btn btn-primary btn-block" id="nextBtn" onclick="nextQuestion()">Suivant</button>
+                <button class="btn btn-secondary btn-block" onclick="closeTest()">Fermer</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Success Modal -->
     <div id="successModal" class="modal">
@@ -1627,197 +1804,319 @@
 
     <script>
         // ============================================
-        // CONFIGURATION WHATSAPP
+        // CONFIGURATION
         // ============================================
         const whatsappNumber = "224664262926";
 
-        // ============================================
-        // TEST SECTION
-        // ============================================
-        const testQuestions = [
-            {
-                question: "Votre enfant rencontre-t-il des difficultés en lecture ?",
-                options: [
-                    { text: "Jamais", score: 0 },
-                    { text: "Parfois", score: 25 },
-                    { text: "Souvent", score: 50 }
+        // TEST DATA
+        const tests = {
+            cp1: {
+                title: "CP1 - Lecture/Écriture",
+                totalPoints: 20,
+                questions: [
+                    {
+                        question: "Exercice 1: Lecture syllabique - Lisez à voix haute (Évaluation libre)",
+                        type: "text",
+                        help: "Lire les syllabes: ra, ro, ri, ru, ma, mo, mi, mu",
+                        points: 5
+                    },
+                    {
+                        question: "Exercice 2: Lecture de mots - Lisez les mots suivants",
+                        type: "text",
+                        help: "maman, ballon, moto, chat, lampe, savon, panier, farine",
+                        points: 5
+                    },
+                    {
+                        question: "Exercice 3: Reconnaissez-vous la majuscule au début?",
+                        options: ["Oui", "Non", "Partiellement"],
+                        points: 4
+                    },
+                    {
+                        question: "Exercice 4: Avez-vous reconnu les points et points d'interrogation?",
+                        options: ["Oui", "Non", "Partiellement"],
+                        points: 3
+                    },
+                    {
+                        question: "Exercice 5: Avez-vous bien lu le texte complet?",
+                        options: ["Oui, couramment", "Oui, avec hésitations", "Avec difficulté", "Non"],
+                        points: 3
+                    }
                 ]
             },
-            {
-                question: "Votre enfant rencontre-t-il des difficultés en mathématiques ?",
-                options: [
-                    { text: "Jamais", score: 0 },
-                    { text: "Parfois", score: 25 },
-                    { text: "Souvent", score: 50 }
+            cp2: {
+                title: "CP2 - Lecture Avancée",
+                totalPoints: 35,
+                questions: [
+                    {
+                        question: "Exercice 1: Lecture syllabique - Lisez les groupes de syllabes",
+                        type: "text",
+                        help: "ra-ro-ri-ru, ma-mo-mi-mu, ta-te-ti-to, sa-se-si-sou, cha-che-chi-chou",
+                        points: 10
+                    },
+                    {
+                        question: "Exercice 2: Lecture de mots - Lisez les mots (10 mots)",
+                        type: "text",
+                        help: "maman, ballon, moto, chat, lampe, savon, panier, farine, coq, vélo",
+                        points: 10
+                    },
+                    {
+                        question: "Exercice 3: Conventions du texte - Avez-vous repéré où commence la phrase?",
+                        options: ["Oui", "Partiellement", "Non"],
+                        points: 5
+                    },
+                    {
+                        question: "Exercice 4: Fluence de lecture du texte 'La moto de Papa'",
+                        options: ["Très bonne (courante)", "Bonne (quelques hésitations)", "Moyenne", "Difficile"],
+                        points: 10
+                    }
                 ]
             },
-            {
-                question: "Votre enfant a-t-il une méthode de travail régulière ?",
-                options: [
-                    { text: "Oui", score: 0 },
-                    { text: "Partiellement", score: 20 },
-                    { text: "Non", score: 40 }
-                ]
-            },
-            {
-                question: "Les résultats scolaires sont-ils satisfaisants ?",
-                options: [
-                    { text: "Oui", score: 0 },
-                    { text: "Moyennement", score: 20 },
-                    { text: "Non", score: 40 }
-                ]
-            },
-            {
-                question: "Avez-vous déjà fait appel à un répétiteur ?",
-                options: [
-                    { text: "Oui", score: 0 },
-                    { text: "Non", score: 20 }
+            cm: {
+                title: "CM1-CM2 - Français",
+                totalPoints: 40,
+                questions: [
+                    {
+                        question: "Q1: 'Où vas-tu ce matin ?' - Quel type de phrase?",
+                        options: ["Déclarative", "Exclamative", "Interrogative", "Impérative"],
+                        points: 2
+                    },
+                    {
+                        question: "Q2: 'Attention! Ce serpent est dangereux!' - Quel type?",
+                        options: ["Interrogative", "Impérative", "Déclarative", "Exclamative"],
+                        points: 2
+                    },
+                    {
+                        question: "Q3: 'Il ne mange pas de poisson' - Quelle forme?",
+                        options: ["Affirmative", "Passive", "Interrogative", "Négative"],
+                        points: 2
+                    },
+                    {
+                        question: "Q4: 'La maison est construite par les ouvriers' - Forme?",
+                        options: ["Active", "Passive", "Affirmative", "Exclamative"],
+                        points: 2
+                    },
+                    {
+                        question: "Q5: Dans 'Le chat noir dort' - 'chat' est?",
+                        options: ["Un adjectif", "Un nom", "Un verbe", "Un déterminant"],
+                        points: 2
+                    },
+                    {
+                        question: "Q6: Dans 'Elle court rapidement' - 'rapidement' est?",
+                        options: ["Un pronom", "Un adverbe", "Un adjectif", "Un verbe"],
+                        points: 2
+                    },
+                    {
+                        question: "Q7: 'Mamadou mange une banane' - 'Mamadou' est?",
+                        options: ["Le verbe", "Le sujet", "Le complément", "L'adjectif"],
+                        points: 2
+                    },
+                    {
+                        question: "Q8: 'Le chien poursuit le chat' - 'le chat' est?",
+                        options: ["Le sujet", "Le complément d'objet", "Le verbe", "Le déterminant"],
+                        points: 2
+                    },
+                    {
+                        question: "Q9: Appariement - belle, je, chanter, la - Reliez aux espèces",
+                        type: "matching",
+                        points: 4
+                    },
+                    {
+                        question: "Q10: Question libre - Comment trouvez-vous votre niveau?",
+                        type: "text",
+                        help: "Excellent, Bon, Acceptable, À améliorer",
+                        points: 18
+                    }
                 ]
             }
-        ];
+        };
 
+        let currentTest = null;
+        let currentQuestion = 0;
         let testAnswers = [];
+        let testScore = 0;
 
-        function initTest() {
-            const container = document.getElementById('testQuestions');
-            const progressContainer = document.getElementById('testProgress');
+        // ============================================
+        // TEST FUNCTIONS
+        // ============================================
+        function openTest(testType) {
+            currentTest = tests[testType];
+            currentQuestion = 0;
+            testAnswers = [];
+            testScore = 0;
             
-            // Progress bars
-            for (let i = 0; i < testQuestions.length; i++) {
-                const bar = document.createElement('div');
-                bar.className = 'test-progress-bar';
-                if (i === 0) bar.classList.add('active');
-                progressContainer.appendChild(bar);
-            }
-
-            // Questions
-            testQuestions.forEach((q, index) => {
-                const questionDiv = document.createElement('div');
-                questionDiv.className = 'test-question';
-                questionDiv.id = 'question-' + index;
-                if (index > 0) questionDiv.style.display = 'none';
-
-                const title = document.createElement('h4');
-                title.textContent = q.question;
-                questionDiv.appendChild(title);
-
-                const optionsDiv = document.createElement('div');
-                optionsDiv.className = 'test-options';
-
-                q.options.forEach((option, optIndex) => {
-                    const label = document.createElement('label');
-                    label.className = 'test-option';
-
-                    const input = document.createElement('input');
-                    input.type = 'radio';
-                    input.name = 'question-' + index;
-                    input.value = optIndex;
-                    input.dataset.score = option.score;
-                    
-                    input.addEventListener('change', function() {
-                        testAnswers[index] = {
-                            score: parseInt(this.dataset.score),
-                            text: option.text
-                        };
-                        
-                        label.classList.add('selected');
-                        label.parentElement.querySelectorAll('.test-option').forEach(l => {
-                            if (l !== label) l.classList.remove('selected');
-                        });
-
-                        setTimeout(() => nextQuestion(index), 500);
-                    });
-
-                    label.appendChild(input);
-                    
-                    const span = document.createElement('span');
-                    span.className = 'test-label';
-                    span.textContent = option.text;
-                    label.appendChild(span);
-
-                    optionsDiv.appendChild(label);
-                });
-
-                questionDiv.appendChild(optionsDiv);
-                container.appendChild(questionDiv);
-            });
+            document.getElementById('testOverlay').classList.add('active');
+            document.getElementById('testTitle').textContent = currentTest.title;
+            
+            renderProgressBar();
+            renderQuestion();
         }
 
-        function nextQuestion(currentIndex) {
-            if (currentIndex < testQuestions.length - 1) {
-                document.getElementById('question-' + currentIndex).style.display = 'none';
-                document.getElementById('question-' + (currentIndex + 1)).style.display = 'block';
+        function closeTest() {
+            document.getElementById('testOverlay').classList.remove('active');
+            currentTest = null;
+        }
+
+        function renderProgressBar() {
+            const bar = document.getElementById('testProgressBar');
+            bar.innerHTML = '';
+            for (let i = 0; i < currentTest.questions.length; i++) {
+                const progress = document.createElement('div');
+                progress.className = 'test-progress-bar' + (i <= currentQuestion ? ' active' : '');
+                bar.appendChild(progress);
+            }
+        }
+
+        function renderQuestion() {
+            const content = document.getElementById('testContent');
+            const q = currentTest.questions[currentQuestion];
+            
+            content.innerHTML = '';
+            
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'test-question';
+            
+            const title = document.createElement('h4');
+            title.textContent = q.question;
+            questionDiv.appendChild(title);
+            
+            if (q.type === 'text') {
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.className = 'form-input';
+                input.placeholder = 'Votre réponse...';
+                input.id = 'answer-text';
+                questionDiv.appendChild(input);
                 
-                document.querySelectorAll('.test-progress-bar')[currentIndex + 1].classList.add('active');
+                if (q.help) {
+                    const help = document.createElement('p');
+                    help.style.fontSize = '0.85rem';
+                    help.style.marginTop = '0.5rem';
+                    help.style.color = 'var(--text-light)';
+                    help.textContent = 'Aide: ' + q.help;
+                    questionDiv.appendChild(help);
+                }
+            } else if (q.type === 'matching') {
+                const p = document.createElement('p');
+                p.textContent = 'Appariement: Reliez chaque mot à son espèce grammaticale';
+                p.style.fontSize = '0.9rem';
+                p.style.marginBottom = '1rem';
+                questionDiv.appendChild(p);
+                
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'test-options';
+                optionsDiv.innerHTML = '<p style="color: var(--accent);">✓ Lisez les paires correctement</p>';
+                questionDiv.appendChild(optionsDiv);
+            } else {
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'test-options';
+                
+                q.options.forEach((option, idx) => {
+                    const label = document.createElement('label');
+                    label.className = 'test-option';
+                    
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.name = 'answer';
+                    input.value = idx;
+                    
+                    label.appendChild(input);
+                    const span = document.createElement('span');
+                    span.className = 'test-label';
+                    span.textContent = option;
+                    label.appendChild(span);
+                    
+                    optionsDiv.appendChild(label);
+                });
+                
+                questionDiv.appendChild(optionsDiv);
+            }
+            
+            content.appendChild(questionDiv);
+            
+            updateNextButton();
+        }
+
+        function nextQuestion() {
+            const q = currentTest.questions[currentQuestion];
+            
+            if (q.type === 'text') {
+                const answer = document.getElementById('answer-text').value;
+                if (!answer.trim()) {
+                    alert('Veuillez entrer une réponse');
+                    return;
+                }
+                testAnswers[currentQuestion] = answer;
+                testScore += q.points * 0.5;
+            } else if (q.options) {
+                const selected = document.querySelector('input[name="answer"]:checked');
+                if (!selected) {
+                    alert('Veuillez sélectionner une réponse');
+                    return;
+                }
+                testAnswers[currentQuestion] = selected.value;
+                testScore += q.points;
+            } else {
+                testScore += q.points * 0.8;
+            }
+            
+            currentQuestion++;
+            
+            if (currentQuestion < currentTest.questions.length) {
+                renderProgressBar();
+                renderQuestion();
             } else {
                 showTestResult();
             }
         }
 
-        function showTestResult() {
-            const totalScore = testAnswers.reduce((sum, a) => sum + a.score, 0);
-            const finalScore = Math.round((totalScore / 200) * 100);
-
-            let message = '';
-            if (finalScore <= 39) {
-                message = "Votre enfant semble disposer de bonnes bases. Un accompagnement occasionnel pourrait l'aider à progresser encore.";
-            } else if (finalScore <= 69) {
-                message = "Un accompagnement ciblé pourrait accélérer sa progression et consolider ses apprentissages.";
+        function updateNextButton() {
+            const btn = document.getElementById('nextBtn');
+            if (currentQuestion === currentTest.questions.length - 1) {
+                btn.textContent = 'Terminer et Voir le Résultat';
             } else {
-                message = "Un diagnostic pédagogique approfondi est fortement recommandé pour identifier précisément ses besoins.";
+                btn.textContent = 'Suivant';
             }
-
-            document.getElementById('testScore').textContent = finalScore;
-            document.getElementById('testMessage').textContent = message;
-            document.getElementById('testQuestions').style.display = 'none';
-            document.getElementById('testResult').classList.add('show');
         }
 
-        function resetTest() {
-            testAnswers = [];
-            document.getElementById('testQuestions').style.display = 'block';
-            document.getElementById('testResult').classList.remove('show');
-            document.getElementById('question-0').style.display = 'block';
-            document.querySelectorAll('#question-1, #question-2, #question-3, #question-4').forEach(q => q.style.display = 'none');
-            document.querySelectorAll('.test-progress-bar').forEach((bar, i) => {
-                if (i === 0) bar.classList.add('active');
-                else bar.classList.remove('active');
-            });
-            document.querySelectorAll('input[type="radio"]').forEach(input => {
-                input.checked = false;
-            });
-            document.querySelectorAll('.test-option').forEach(option => {
-                option.classList.remove('selected');
-            });
+        function showTestResult() {
+            const finalScore = Math.round((testScore / currentTest.totalPoints) * 100);
+            
+            document.getElementById('testContent').innerHTML = `
+                <div class="test-result">
+                    <div class="test-score">${finalScore}%</div>
+                    <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1.5rem;">
+                        Vous avez obtenu ${Math.round(testScore)}/${currentTest.totalPoints} points
+                    </p>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-dark); margin-bottom: 1.5rem;">
+                        <strong>Résultat:</strong> ${finalScore >= 80 ? '🌟 Excellent niveau!' : finalScore >= 60 ? '👍 Bon niveau' : finalScore >= 40 ? '⚠️ Niveau moyen - accompagnement recommandé' : '❌ Accompagnement prioritaire recommandé'}
+                    </p>
+                    <a href="#booking" class="btn btn-primary btn-block" style="margin-bottom: 10px;">Réserver un Diagnostic Complet</a>
+                </div>
+            `;
+            
+            document.getElementById('nextBtn').style.display = 'none';
         }
-
-        // Initialize test on page load
-        document.addEventListener('DOMContentLoaded', initTest);
 
         // ============================================
-        // FAQ ACCORDION
+        // FAQ
         // ============================================
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', function() {
                 const faqItem = this.parentElement;
-                
                 document.querySelectorAll('.faq-item.active').forEach(item => {
-                    if (item !== faqItem) {
-                        item.classList.remove('active');
-                    }
+                    if (item !== faqItem) item.classList.remove('active');
                 });
-                
                 faqItem.classList.toggle('active');
             });
         });
 
         // ============================================
-        // FORM HANDLING
+        // FORM
         // ============================================
-        const form = document.getElementById('bookingForm');
-        form.addEventListener('submit', async (e) => {
+        document.getElementById('bookingForm').addEventListener('submit', (e) => {
             e.preventDefault();
-
+            
+            const form = e.target;
             const formData = {
                 parentName: form.parentName.value,
                 phone: '+224' + form.phone.value,
@@ -1833,8 +2132,7 @@
                 return;
             }
 
-            const message = `
-*RÉSERVATION - DIAGNOSTIC PÉDAGOGIQUE*
+            const message = `*RÉSERVATION - DIAGNOSTIC PÉDAGOGIQUE*
 
 👤 Parent: ${formData.parentName}
 📞 Téléphone: ${formData.phone}
@@ -1845,11 +2143,9 @@
 💬 Message: ${formData.message || 'Aucun'}
 
 ---
-Merci de confirmer la réservation
-            `.trim();
+Merci de confirmer la réservation`;
 
             showModal(`Merci ${formData.parentName} ! Votre réservation pour ${formData.childName} a bien été reçue. Cliquez le bouton ci-dessous pour être contacté sur WhatsApp.`);
-
             form.reset();
 
             setTimeout(() => {
@@ -1858,8 +2154,13 @@ Merci de confirmer la réservation
             }, 2000);
         });
 
+        // Phone validation
+        document.querySelector('input[name="phone"]').addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/[^\d]/g, '').slice(0, 9);
+        });
+
         // ============================================
-        // WHATSAPP BUTTON
+        // WHATSAPP
         // ============================================
         function openWhatsApp() {
             const message = "Bonjour Précepteur. Je souhaite bénéficier d'un diagnostic pédagogique gratuit pour mon enfant.";
@@ -1868,15 +2169,7 @@ Merci de confirmer la réservation
         }
 
         // ============================================
-        // PHONE INPUT VALIDATION
-        // ============================================
-        const phoneInput = document.querySelector('input[name="phone"]');
-        phoneInput.addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/[^\d]/g, '').slice(0, 9);
-        });
-
-        // ============================================
-        // MODAL FUNCTIONS
+        // MODAL
         // ============================================
         function showModal(message) {
             document.getElementById('modalMessage').textContent = message;
@@ -1888,9 +2181,7 @@ Merci de confirmer la réservation
         }
 
         document.getElementById('successModal').addEventListener('click', (e) => {
-            if (e.target.id === 'successModal') {
-                closeModal();
-            }
+            if (e.target.id === 'successModal') closeModal();
         });
 
         // ============================================
@@ -1903,15 +2194,12 @@ Merci de confirmer la réservation
                     e.preventDefault();
                     const target = document.querySelector(href);
                     const offsetTop = target.offsetTop - 70;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
                 }
             });
         });
 
-        console.log('✅ Précepteur Premium - Améliorations Chargées');
+        console.log('✅ Précepteur Premium - Tests Diagnostiques Intégrés');
     </script>
 </body>
 </html>
