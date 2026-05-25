@@ -17,10 +17,9 @@
     <style>
         /* ============================================
            MOBILE-FIRST LANDING PAGE - PRÉCEPTEUR
-           Optimisé pour Android et tous les appareils
+           Version améliorée avec test interactif
            ============================================ */
 
-        /* Reset et Variables */
         * {
             margin: 0;
             padding: 0;
@@ -58,7 +57,6 @@
             overflow-x: hidden;
         }
 
-        /* Typography Mobile-First */
         h1 {
             font-size: 1.75rem;
             font-weight: 700;
@@ -96,14 +94,12 @@
             transition: all 0.2s ease;
         }
 
-        /* Container */
         .container {
             width: 100%;
             padding: 0 16px;
             margin: 0 auto;
         }
 
-        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -171,7 +167,6 @@
             border-radius: 10px;
         }
 
-        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
@@ -207,12 +202,10 @@
             font-weight: bold;
         }
 
-        /* Sections */
         section {
             padding: 3rem 0;
         }
 
-        /* Hero */
         .hero {
             padding-top: 80px;
             padding-bottom: 2rem;
@@ -294,7 +287,6 @@
             font-weight: 500;
         }
 
-        /* Problem Section */
         .problems {
             background: var(--white);
         }
@@ -349,51 +341,202 @@
             margin-bottom: 0;
         }
 
-        /* Method Section */
-        .method {
+        /* Test Section */
+        .test-section {
             background: linear-gradient(135deg, #E8F0FF 0%, #F5F7FA 100%);
         }
 
-        .method-grid {
+        .test-container {
+            max-width: 100%;
+        }
+
+        .test-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 1.5rem;
+        }
+
+        .test-progress {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 1.5rem;
+        }
+
+        .test-progress-bar {
+            flex: 1;
+            height: 4px;
+            background: var(--bg-light);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .test-progress-bar.active {
+            background: var(--primary);
+        }
+
+        .test-question {
+            margin-bottom: 1.5rem;
+        }
+
+        .test-question h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .test-options {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 16px;
+            gap: 10px;
         }
 
-        .method-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--accent);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .method-number {
-            display: inline-flex;
+        .test-option {
+            display: flex;
             align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            color: var(--white);
-            border-radius: 50%;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
+            padding: 12px;
+            border: 2px solid var(--border-light);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: var(--white);
+            -webkit-user-select: none;
+            user-select: none;
         }
 
-        .method-card h3 {
+        .test-option:hover {
+            border-color: var(--primary);
+            background: rgba(0, 82, 204, 0.02);
+        }
+
+        .test-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        .test-option.selected {
+            border-color: var(--primary);
+            background: rgba(0, 82, 204, 0.05);
+        }
+
+        .test-label {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .test-result {
+            display: none;
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            animation: slideUp 0.3s ease;
+        }
+
+        .test-result.show {
+            display: block;
+        }
+
+        .test-score {
+            font-size: 3rem;
+            font-weight: 700;
             color: var(--primary);
             margin-bottom: 0.5rem;
         }
 
+        .test-score-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .test-message {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .test-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Method Section */
+        .method {
+            background: var(--white);
+        }
+
+        .method-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            position: relative;
+        }
+
+        .method-step {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            box-shadow: var(--shadow-sm);
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .method-step:nth-child(1) { animation-delay: 0.1s; }
+        .method-step:nth-child(2) { animation-delay: 0.2s; }
+        .method-step:nth-child(3) { animation-delay: 0.3s; }
+        .method-step:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .method-icon {
-            font-size: 1.75rem;
-            margin-top: 0.75rem;
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .method-step h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .method-step p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        .method-arrow {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin: -10px 0;
+            font-weight: bold;
         }
 
         /* Features Section */
         .features {
-            background: var(--white);
+            background: linear-gradient(135deg, #F5F7FA 0%, #E8F0FF 100%);
         }
 
         .features-grid {
@@ -403,7 +546,7 @@
         }
 
         .feature-card {
-            background: var(--bg-light);
+            background: var(--white);
             padding: 1.5rem;
             border-radius: 10px;
             text-align: center;
@@ -422,7 +565,7 @@
 
         /* Offers Section */
         .offers {
-            background: linear-gradient(135deg, #F5F7FA 0%, #E8F0FF 100%);
+            background: var(--white);
         }
 
         .offers-grid {
@@ -499,7 +642,7 @@
 
         /* Testimonials */
         .testimonials {
-            background: var(--white);
+            background: linear-gradient(135deg, #E8F0FF 0%, #F5F7FA 100%);
         }
 
         .testimonials-grid {
@@ -509,7 +652,7 @@
         }
 
         .testimonial-card {
-            background: var(--bg-light);
+            background: var(--white);
             padding: 1.25rem;
             border-radius: 10px;
             box-shadow: var(--shadow-sm);
@@ -542,7 +685,7 @@
 
         /* FAQ */
         .faq {
-            background: linear-gradient(135deg, #E8F0FF 0%, #F5F7FA 100%);
+            background: var(--white);
         }
 
         .faq-list {
@@ -552,7 +695,7 @@
         }
 
         .faq-item {
-            background: var(--white);
+            background: var(--bg-light);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow-sm);
@@ -816,6 +959,8 @@
             text-decoration: none;
             animation: pulse 2s infinite;
             transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .whatsapp-btn:active {
@@ -895,7 +1040,7 @@
             margin-top: 1rem;
         }
 
-        /* Desktop Responsive */
+        /* Responsive */
         @media (min-width: 640px) {
             .container {
                 padding: 0 24px;
@@ -920,8 +1065,12 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .method-grid {
+            .method-steps {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .method-arrow {
+                display: none;
             }
 
             .hero-buttons {
@@ -936,6 +1085,10 @@
                 max-width: 700px;
                 margin: 0 auto;
             }
+
+            .test-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (min-width: 1024px) {
@@ -944,7 +1097,7 @@
                 grid-template-columns: repeat(3, 1fr);
             }
 
-            .method-grid,
+            .method-steps,
             .offers-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -961,9 +1114,12 @@
                 max-width: 600px;
                 margin: 0 auto;
             }
+
+            .test-options {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
-        /* Print */
         @media print {
             .navbar,
             .whatsapp-btn,
@@ -975,9 +1131,9 @@
 </head>
 <body>
     <!-- Navigation -->
-   <nav class="navbar">
-        <div class="logo" style="display: flex; align-items: center; gap: 10px;">
-            <img src="image/logo.jpg" alt="Logo Précepteur" style="height: 40px; width: auto; object-fit: contain; border-radius: 4px;">
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon">P</span>
             <span>Précepteur</span>
         </div>
     </nav>
@@ -992,7 +1148,7 @@
                 
                 <div class="hero-buttons">
                     <a href="#booking" class="btn btn-primary btn-lg btn-block">Réserver Diagnostic Gratuit</a>
-                    <a href="#method" class="btn btn-secondary btn-lg btn-block">En Savoir Plus</a>
+                    <a href="#test" class="btn btn-secondary btn-lg btn-block">Faire le Test Gratuit</a>
                 </div>
 
                 <div class="hero-stats">
@@ -1054,36 +1210,65 @@
         </div>
     </section>
 
+    <!-- Test Section -->
+    <section class="test-section" id="test">
+        <div class="container">
+            <h2 class="section-title">Votre enfant a-t-il besoin d'un accompagnement ?</h2>
+            <p class="section-subtitle">Faites le test gratuit en 2 minutes</p>
+            
+            <div class="test-card">
+                <div class="test-progress" id="testProgress"></div>
+                
+                <div id="testQuestions"></div>
+                
+                <div id="testResult" class="test-result">
+                    <div class="test-score" id="testScore">0</div>
+                    <div class="test-score-label">Votre score sur 100</div>
+                    <div class="test-message" id="testMessage"></div>
+                    <div class="test-buttons">
+                        <a href="#booking" class="btn btn-primary btn-lg btn-block">Réserver mon diagnostic gratuit</a>
+                        <button onclick="resetTest()" class="btn btn-secondary btn-lg btn-block">Refaire le test</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Method Section -->
-    <section class="method" id="method">
+    <section class="method">
         <div class="container">
             <h2 class="section-title">La Méthode Précepteur</h2>
-            <p class="section-subtitle">Un suivi structuré et personnalisé</p>
+            <p class="section-subtitle">Un processus simple et efficace</p>
             
-            <div class="method-grid">
-                <div class="method-card">
-                    <div class="method-number">1</div>
-                    <h3>Diagnostic Gratuit</h3>
-                    <p>Analyse complète des forces, faiblesses et style d'apprentissage.</p>
+            <div class="method-steps">
+                <div class="method-step">
                     <div class="method-icon">🔍</div>
+                    <h3>Diagnostic Gratuit</h3>
+                    <p>Nous identifions précisément les forces et les difficultés de l'élève.</p>
                 </div>
-                <div class="method-card">
-                    <div class="method-number">2</div>
-                    <h3>Plan Personnalisé</h3>
-                    <p>Programme adapté au niveau et rythme de votre enfant.</p>
+
+                <div class="method-arrow">↓</div>
+
+                <div class="method-step">
                     <div class="method-icon">📋</div>
+                    <h3>Plan Personnalisé</h3>
+                    <p>Nous construisons un programme adapté à ses besoins.</p>
                 </div>
-                <div class="method-card">
-                    <div class="method-number">3</div>
-                    <h3>Enseignement Adaptatif</h3>
-                    <p>Pédagogie moderne qui s'ajuste à la progression.</p>
-                    <div class="method-icon">🎯</div>
+
+                <div class="method-arrow">↓</div>
+
+                <div class="method-step">
+                    <div class="method-icon">🏠</div>
+                    <h3>Accompagnement à Domicile</h3>
+                    <p>Trois séances hebdomadaires avec un enseignant sélectionné.</p>
                 </div>
-                <div class="method-card">
-                    <div class="method-number">4</div>
+
+                <div class="method-arrow">↓</div>
+
+                <div class="method-step">
+                    <div class="method-icon">📈</div>
                     <h3>Suivi de Progression</h3>
-                    <p>Rapports réguliers et ajustements stratégiques.</p>
-                    <div class="method-icon">📊</div>
+                    <p>Nous mesurons régulièrement les progrès réalisés.</p>
                 </div>
             </div>
         </div>
@@ -1426,7 +1611,7 @@
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/224664262926" class="whatsapp-btn" title="Contactez-nous sur WhatsApp">💬</a>
+    <button class="whatsapp-btn" onclick="openWhatsApp()" title="Contactez-nous sur WhatsApp">💬</button>
 
     <!-- Success Modal -->
     <div id="successModal" class="modal">
@@ -1441,7 +1626,177 @@
     </div>
 
     <script>
-        // FAQ Accordion
+        // ============================================
+        // CONFIGURATION WHATSAPP
+        // ============================================
+        const whatsappNumber = "224664262926";
+
+        // ============================================
+        // TEST SECTION
+        // ============================================
+        const testQuestions = [
+            {
+                question: "Votre enfant rencontre-t-il des difficultés en lecture ?",
+                options: [
+                    { text: "Jamais", score: 0 },
+                    { text: "Parfois", score: 25 },
+                    { text: "Souvent", score: 50 }
+                ]
+            },
+            {
+                question: "Votre enfant rencontre-t-il des difficultés en mathématiques ?",
+                options: [
+                    { text: "Jamais", score: 0 },
+                    { text: "Parfois", score: 25 },
+                    { text: "Souvent", score: 50 }
+                ]
+            },
+            {
+                question: "Votre enfant a-t-il une méthode de travail régulière ?",
+                options: [
+                    { text: "Oui", score: 0 },
+                    { text: "Partiellement", score: 20 },
+                    { text: "Non", score: 40 }
+                ]
+            },
+            {
+                question: "Les résultats scolaires sont-ils satisfaisants ?",
+                options: [
+                    { text: "Oui", score: 0 },
+                    { text: "Moyennement", score: 20 },
+                    { text: "Non", score: 40 }
+                ]
+            },
+            {
+                question: "Avez-vous déjà fait appel à un répétiteur ?",
+                options: [
+                    { text: "Oui", score: 0 },
+                    { text: "Non", score: 20 }
+                ]
+            }
+        ];
+
+        let testAnswers = [];
+
+        function initTest() {
+            const container = document.getElementById('testQuestions');
+            const progressContainer = document.getElementById('testProgress');
+            
+            // Progress bars
+            for (let i = 0; i < testQuestions.length; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'test-progress-bar';
+                if (i === 0) bar.classList.add('active');
+                progressContainer.appendChild(bar);
+            }
+
+            // Questions
+            testQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'test-question';
+                questionDiv.id = 'question-' + index;
+                if (index > 0) questionDiv.style.display = 'none';
+
+                const title = document.createElement('h4');
+                title.textContent = q.question;
+                questionDiv.appendChild(title);
+
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'test-options';
+
+                q.options.forEach((option, optIndex) => {
+                    const label = document.createElement('label');
+                    label.className = 'test-option';
+
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.name = 'question-' + index;
+                    input.value = optIndex;
+                    input.dataset.score = option.score;
+                    
+                    input.addEventListener('change', function() {
+                        testAnswers[index] = {
+                            score: parseInt(this.dataset.score),
+                            text: option.text
+                        };
+                        
+                        label.classList.add('selected');
+                        label.parentElement.querySelectorAll('.test-option').forEach(l => {
+                            if (l !== label) l.classList.remove('selected');
+                        });
+
+                        setTimeout(() => nextQuestion(index), 500);
+                    });
+
+                    label.appendChild(input);
+                    
+                    const span = document.createElement('span');
+                    span.className = 'test-label';
+                    span.textContent = option.text;
+                    label.appendChild(span);
+
+                    optionsDiv.appendChild(label);
+                });
+
+                questionDiv.appendChild(optionsDiv);
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function nextQuestion(currentIndex) {
+            if (currentIndex < testQuestions.length - 1) {
+                document.getElementById('question-' + currentIndex).style.display = 'none';
+                document.getElementById('question-' + (currentIndex + 1)).style.display = 'block';
+                
+                document.querySelectorAll('.test-progress-bar')[currentIndex + 1].classList.add('active');
+            } else {
+                showTestResult();
+            }
+        }
+
+        function showTestResult() {
+            const totalScore = testAnswers.reduce((sum, a) => sum + a.score, 0);
+            const finalScore = Math.round((totalScore / 200) * 100);
+
+            let message = '';
+            if (finalScore <= 39) {
+                message = "Votre enfant semble disposer de bonnes bases. Un accompagnement occasionnel pourrait l'aider à progresser encore.";
+            } else if (finalScore <= 69) {
+                message = "Un accompagnement ciblé pourrait accélérer sa progression et consolider ses apprentissages.";
+            } else {
+                message = "Un diagnostic pédagogique approfondi est fortement recommandé pour identifier précisément ses besoins.";
+            }
+
+            document.getElementById('testScore').textContent = finalScore;
+            document.getElementById('testMessage').textContent = message;
+            document.getElementById('testQuestions').style.display = 'none';
+            document.getElementById('testResult').classList.add('show');
+        }
+
+        function resetTest() {
+            testAnswers = [];
+            document.getElementById('testQuestions').style.display = 'block';
+            document.getElementById('testResult').classList.remove('show');
+            document.getElementById('question-0').style.display = 'block';
+            document.querySelectorAll('#question-1, #question-2, #question-3, #question-4').forEach(q => q.style.display = 'none');
+            document.querySelectorAll('.test-progress-bar').forEach((bar, i) => {
+                if (i === 0) bar.classList.add('active');
+                else bar.classList.remove('active');
+            });
+            document.querySelectorAll('input[type="radio"]').forEach(input => {
+                input.checked = false;
+            });
+            document.querySelectorAll('.test-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+        }
+
+        // Initialize test on page load
+        document.addEventListener('DOMContentLoaded', initTest);
+
+        // ============================================
+        // FAQ ACCORDION
+        // ============================================
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', function() {
                 const faqItem = this.parentElement;
@@ -1456,7 +1811,9 @@
             });
         });
 
-        // Form Handling
+        // ============================================
+        // FORM HANDLING
+        // ============================================
         const form = document.getElementById('bookingForm');
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -1497,17 +1854,30 @@ Merci de confirmer la réservation
 
             setTimeout(() => {
                 const encodedMessage = encodeURIComponent(message);
-                window.open(`https://wa.me/224664262926?text=${encodedMessage}`, '_blank');
+                window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
             }, 2000);
         });
 
-        // Phone input
+        // ============================================
+        // WHATSAPP BUTTON
+        // ============================================
+        function openWhatsApp() {
+            const message = "Bonjour Précepteur. Je souhaite bénéficier d'un diagnostic pédagogique gratuit pour mon enfant.";
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // ============================================
+        // PHONE INPUT VALIDATION
+        // ============================================
         const phoneInput = document.querySelector('input[name="phone"]');
         phoneInput.addEventListener('input', (e) => {
             e.target.value = e.target.value.replace(/[^\d]/g, '').slice(0, 9);
         });
 
-        // Modal
+        // ============================================
+        // MODAL FUNCTIONS
+        // ============================================
         function showModal(message) {
             document.getElementById('modalMessage').textContent = message;
             document.getElementById('successModal').classList.add('active');
@@ -1523,7 +1893,9 @@ Merci de confirmer la réservation
             }
         });
 
-        // Smooth scroll
+        // ============================================
+        // SMOOTH SCROLL
+        // ============================================
         document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', (e) => {
                 const href = link.getAttribute('href');
@@ -1539,7 +1911,7 @@ Merci de confirmer la réservation
             });
         });
 
-        console.log('✅ Précepteur Mobile-First - Prêt');
+        console.log('✅ Précepteur Premium - Améliorations Chargées');
     </script>
 </body>
 </html>
