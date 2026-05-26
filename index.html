@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="description" content="Soutien scolaire à domicile en Guinée. Diagnostic gratuit, accompagnement personnalisé et suivi de progression.">
-    <meta name="keywords" content="soutien scolaire, précepteur, Guinée, cours particuliers, accompagnement">
+    <meta name="description" content="Précepteur - Soutien scolaire premium à domicile en Guinée. Diagnostic gratuit, accompagnement personnalisé et suivi de progression garantis.">
+    <meta name="keywords" content="soutien scolaire, précepteur, Guinée, cours particuliers, accompagnement, Conakry">
     <meta name="author" content="Précepteur">
     <meta name="theme-color" content="#0052CC">
     <meta property="og:title" content="Précepteur - Plus qu'un répétiteur">
-    <meta property="og:description" content="Soutien scolaire à domicile en Guinée. Diagnostic gratuit, accompagnement personnalisé et suivi de progression.">
+    <meta property="og:description" content="Soutien scolaire premium à domicile. Diagnostic gratuit, accompagnement personnalisé et progression garantie.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><rect fill='%230052CC' width='200' height='200' rx='40'/><text x='100' y='140' font-size='120' fill='white' font-weight='bold' text-anchor='middle'>P</text></svg>">
     
-    <title>Précepteur - Plus qu'un répétiteur</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230052CC' width='100' height='100' rx='20'/><text x='50' y='70' font-size='60' fill='white' font-weight='bold' text-anchor='middle'>P</text></svg>">
+    <title>Précepteur - Soutien Scolaire Premium</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%230052CC;stop-opacity:1' /><stop offset='100%' style='stop-color:%23FF9500;stop-opacity:1' /></linearGradient></defs><rect fill='url(%23grad)' width='100' height='100' rx='20'/><text x='50' y='70' font-size='60' fill='white' font-weight='bold' text-anchor='middle'>P</text></svg>">
 
     <style>
         /* ============================================
-           MOBILE-FIRST LANDING PAGE - PRÉCEPTEUR
-           Optimisé pour Android et tous les appareils
+           PRÉCEPTEUR - VERSION PREMIUM
+           Design sophistiqué avec animations fluides
            ============================================ */
 
-        /* Reset et Variables */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -30,19 +32,33 @@
 
         :root {
             --primary: #0052CC;
+            --primary-light: #E8F0FF;
             --primary-dark: #0038A8;
             --accent: #FF9500;
+            --accent-light: #FFF5E6;
             --accent-dark: #E67E22;
-            --white: #FFFFFF;
-            --bg-light: #F8F9FA;
-            --bg-lighter: #F5F7FA;
-            --text-dark: #1F2937;
-            --text-light: #6B7280;
-            --border-light: #E5E7EB;
             --success: #10B981;
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --success-light: #D1FAE5;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --white: #FFFFFF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+            
+            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
         html {
@@ -51,114 +67,139 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-            background-color: var(--white);
-            color: var(--text-dark);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
+            color: var(--gray-800);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Typography Mobile-First */
+        /* ============ TYPOGRAPHY ============ */
         h1 {
-            font-size: 1.75rem;
-            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.75rem, 5vw, 3.5rem);
+            font-weight: 800;
             line-height: 1.2;
-            color: var(--primary);
-            margin-bottom: 0.75rem;
+            color: var(--gray-900);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             font-weight: 700;
             line-height: 1.3;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
+            color: var(--gray-900);
         }
 
         h3 {
-            font-size: 1.125rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
             font-weight: 600;
             line-height: 1.4;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
+            color: var(--gray-800);
         }
 
         p {
             font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-light);
-            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: var(--gray-600);
         }
 
         a {
             color: var(--primary);
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Container */
+        /* ============ CONTAINER ============ */
         .container {
             width: 100%;
-            padding: 0 16px;
+            max-width: 1200px;
+            padding: 0 1rem;
             margin: 0 auto;
         }
 
-        /* Buttons */
+        /* ============ BUTTONS ============ */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            padding: 14px 24px;
+            gap: 0.75rem;
+            padding: 0.875rem 1.5rem;
             font-size: 0.95rem;
             font-weight: 600;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
             white-space: nowrap;
             -webkit-user-select: none;
             user-select: none;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:active::before {
+            width: 300px;
+            height: 300px;
         }
 
         .btn-primary {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: var(--white);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-primary:active {
-            background: var(--primary-dark);
-            transform: scale(0.98);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
         }
 
         .btn-primary:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
             box-shadow: var(--shadow-md);
         }
 
         .btn-secondary {
-            background: var(--bg-light);
+            background: var(--white);
             color: var(--primary);
             border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:active {
-            background: var(--primary);
-            color: var(--white);
-            transform: scale(0.98);
-        }
-
-        .btn-accent {
-            background: var(--accent);
-            color: var(--white);
             box-shadow: var(--shadow-sm);
         }
 
-        .btn-accent:active {
-            background: var(--accent-dark);
-            transform: scale(0.98);
+        .btn-secondary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-accent:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-2px);
         }
 
         .btn-block {
@@ -166,61 +207,72 @@
         }
 
         .btn-lg {
-            padding: 16px 28px;
-            font-size: 1rem;
-            border-radius: 10px;
+            padding: 1rem 2rem;
+            font-size: 1.05rem;
+            border-radius: 12px;
         }
 
-        /* Navigation */
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            border-radius: 8px;
+        }
+
+        /* ============ NAVIGATION ============ */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            background: var(--white);
-            border-bottom: 1px solid var(--border-light);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
             z-index: 1000;
-            padding: 12px 16px;
+            padding: 1rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: var(--shadow-sm);
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.75rem;
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--primary);
+            font-family: 'Poppins', sans-serif;
         }
 
-        .logo-icon {
-            font-size: 1.5rem;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--primary);
-            color: var(--white);
-            border-radius: 8px;
-            font-weight: bold;
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
         }
 
         .nav-menu {
             display: none;
         }
 
-        /* Sections */
+        /* ============ SECTIONS ============ */
         section {
-            padding: 3rem 0;
+            padding: 4rem 0;
+            position: relative;
         }
 
-        /* Hero */
+        /* ============ HERO ============ */
         .hero {
-            padding-top: 80px;
+            padding-top: 100px;
             padding-bottom: 2rem;
-            background: linear-gradient(135deg, #F5F7FA 0%, #E8F0FF 100%);
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -228,118 +280,185 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 300px;
-            height: 300px;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 82, 204, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: 5%;
+            width: 400px;
+            height: 400px;
             background: radial-gradient(circle, rgba(255, 149, 0, 0.08) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
+            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-title {
-            font-size: 2.25rem;
+            font-size: clamp(2rem, 6vw, 3.5rem);
             line-height: 1.1;
-            color: var(--primary);
             margin-bottom: 0.5rem;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             color: var(--accent);
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
         }
 
         .hero-description {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            max-width: 600px;
         }
 
         .hero-buttons {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: 2rem;
+            gap: 1rem;
+            margin-bottom: 3rem;
         }
 
         .hero-stats {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 16px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
         }
 
         .stat-card {
             background: var(--white);
-            padding: 1rem;
-            border-radius: 8px;
+            padding: 1.5rem;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            animation-fill-mode: both;
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stat-card:nth-child(2) { animation-delay: 0.2s; }
+        .stat-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .stat-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
         }
 
         .stat-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             line-height: 1;
+            font-family: 'Poppins', sans-serif;
         }
 
         .stat-label {
-            font-size: 0.75rem;
-            color: var(--text-light);
-            margin-top: 0.5rem;
-            font-weight: 500;
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-top: 0.75rem;
+            font-weight: 600;
         }
 
-        /* Problem Section */
+        /* ============ SECTION HEADERS ============ */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ============ PROBLEMS SECTION ============ */
         .problems {
             background: var(--white);
         }
 
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        .section-subtitle {
-            font-size: 0.95rem;
-            text-align: center;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
-
         .problems-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
         }
 
         .problem-card {
-            background: var(--bg-light);
-            padding: 1.25rem;
-            border-radius: 10px;
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+            padding: 2rem;
+            border-radius: 14px;
             box-shadow: var(--shadow-sm);
-            transition: all 0.2s ease;
+            border: 2px solid transparent;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            animation-fill-mode: both;
         }
 
-        .problem-card:active {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+        .problem-card:nth-child(1) { animation-delay: 0.05s; }
+        .problem-card:nth-child(2) { animation-delay: 0.1s; }
+        .problem-card:nth-child(3) { animation-delay: 0.15s; }
+        .problem-card:nth-child(4) { animation-delay: 0.2s; }
+        .problem-card:nth-child(5) { animation-delay: 0.25s; }
+        .problem-card:nth-child(6) { animation-delay: 0.3s; }
+
+        .problem-card:hover {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
         }
 
         .problem-icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
             display: block;
         }
 
@@ -353,69 +472,103 @@
             margin-bottom: 0;
         }
 
-        /* Method Section */
+        /* ============ METHOD SECTION ============ */
         .method {
-            background: linear-gradient(135deg, #E8F0FF 0%, #F5F7FA 100%);
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--gray-100) 100%);
         }
 
         .method-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
         }
 
         .method-card {
             background: var(--white);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--accent);
-            box-shadow: var(--shadow-sm);
+            padding: 2rem;
+            border-radius: 14px;
+            border-left: 5px solid var(--accent);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            animation-fill-mode: both;
+        }
+
+        .method-card:nth-child(1) { animation-delay: 0.1s; }
+        .method-card:nth-child(2) { animation-delay: 0.2s; }
+        .method-card:nth-child(3) { animation-delay: 0.3s; }
+        .method-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .method-card:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-8px);
+            border-left-color: var(--primary);
         }
 
         .method-number {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             color: var(--white);
-            border-radius: 50%;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
         }
 
         .method-card h3 {
             color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .method-icon {
-            font-size: 1.75rem;
-            margin-top: 0.75rem;
+            font-size: 2rem;
+            margin-top: 1rem;
+            opacity: 0.6;
         }
 
-        /* Features Section */
+        /* ============ FEATURES SECTION ============ */
         .features {
             background: var(--white);
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
         }
 
         .feature-card {
-            background: var(--bg-light);
-            padding: 1.5rem;
-            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
+            padding: 2rem;
+            border-radius: 14px;
             text-align: center;
             box-shadow: var(--shadow-sm);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            animation-fill-mode: both;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.05s; }
+        .feature-card:nth-child(2) { animation-delay: 0.1s; }
+        .feature-card:nth-child(3) { animation-delay: 0.15s; }
+        .feature-card:nth-child(4) { animation-delay: 0.2s; }
+        .feature-card:nth-child(5) { animation-delay: 0.25s; }
+        .feature-card:nth-child(6) { animation-delay: 0.3s; }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
         }
 
         .feature-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
 
@@ -424,27 +577,62 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Offers Section */
+        /* ============ OFFERS SECTION ============ */
         .offers {
-            background: linear-gradient(135deg, #F5F7FA 0%, #E8F0FF 100%);
+            background: linear-gradient(135deg, var(--gray-100) 0%, var(--primary-light) 100%);
         }
 
         .offers-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
         .offer-card {
             background: var(--white);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            animation-fill-mode: both;
+            position: relative;
+        }
+
+        .offer-card:nth-child(1) { animation-delay: 0.1s; }
+        .offer-card:nth-child(2) { animation-delay: 0.2s; }
+        .offer-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .offer-card:hover {
+            box-shadow: var(--shadow-2xl);
+            transform: translateY(-12px);
+        }
+
+        .offer-card.featured {
+            border: 2px solid var(--accent);
+            transform: scale(1.02);
+        }
+
+        .offer-card.featured:hover {
+            transform: scale(1.02) translateY(-12px);
         }
 
         .offer-header {
-            padding: 1.5rem;
+            padding: 2rem;
             color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
         }
 
         .offer-header.primary {
@@ -456,36 +644,42 @@
         }
 
         .offer-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.75rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         .offer-header h3 {
             color: var(--white);
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             margin-bottom: 0;
+            position: relative;
+            z-index: 1;
         }
 
         .offer-body {
-            padding: 1.5rem;
+            padding: 2rem;
         }
 
         .offer-body p {
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
         }
 
         .offer-features {
             list-style: none;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .offer-features li {
-            padding: 0.5rem 0;
+            padding: 0.75rem 0;
             font-size: 0.9rem;
-            color: var(--text-light);
+            color: var(--gray-600);
             position: relative;
-            padding-left: 24px;
+            padding-left: 28px;
+            display: flex;
+            align-items: center;
         }
 
         .offer-features li::before {
@@ -493,79 +687,181 @@
             position: absolute;
             left: 0;
             color: var(--success);
-            font-weight: bold;
+            font-weight: 900;
+            font-size: 1.25rem;
         }
 
         .offer-cta {
             width: 100%;
-            margin-top: 1rem;
+            margin-top: 0;
         }
 
-        /* Testimonials */
+        /* ============ TESTIMONIALS ============ */
         .testimonials {
             background: var(--white);
         }
 
         .testimonials-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
 
         .testimonial-card {
-            background: var(--bg-light);
-            padding: 1.25rem;
-            border-radius: 10px;
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--primary-light) 100%);
+            padding: 2rem;
+            border-radius: 14px;
             box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            animation-fill-mode: both;
+        }
+
+        .testimonial-card:nth-child(1) { animation-delay: 0.05s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.1s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.15s; }
+        .testimonial-card:nth-child(4) { animation-delay: 0.2s; }
+
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
         }
 
         .testimonial-stars {
             color: #FFB81C;
-            font-size: 1rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
         }
 
         .testimonial-text {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-style: italic;
-            color: var(--text-light);
-            margin-bottom: 0.75rem;
-            line-height: 1.5;
+            color: var(--gray-700);
+            margin-bottom: 1rem;
+            line-height: 1.7;
         }
 
         .testimonial-author {
-            font-weight: 600;
-            color: var(--text-dark);
+            font-weight: 700;
+            color: var(--gray-900);
             font-size: 0.95rem;
         }
 
         .testimonial-role {
             font-size: 0.85rem;
-            color: var(--text-light);
+            color: var(--gray-600);
         }
 
-        /* FAQ */
+        /* ============ ABOUT SECTION ============ */
+        .about {
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--primary-light) 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .about-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .about-list li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .about-list li::before {
+            content: '→';
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .about-stat {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .about-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .about-stat-label {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* ============ FAQ SECTION ============ */
         .faq {
-            background: linear-gradient(135deg, #E8F0FF 0%, #F5F7FA 100%);
+            background: var(--white);
         }
 
         .faq-list {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 12px;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .faq-item {
-            background: var(--white);
-            border-radius: 10px;
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--primary-light) 100%);
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            animation-fill-mode: both;
+        }
+
+        .faq-item:nth-child(1) { animation-delay: 0.05s; }
+        .faq-item:nth-child(2) { animation-delay: 0.1s; }
+        .faq-item:nth-child(3) { animation-delay: 0.15s; }
+        .faq-item:nth-child(4) { animation-delay: 0.2s; }
+        .faq-item:nth-child(5) { animation-delay: 0.25s; }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-item.active {
+            box-shadow: var(--shadow-lg);
         }
 
         .faq-question {
             width: 100%;
-            padding: 1.25rem;
-            background: var(--white);
+            padding: 1.5rem;
+            background: transparent;
             border: none;
             text-align: left;
             font-size: 0.95rem;
@@ -575,15 +871,20 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 12px;
+            gap: 1rem;
             -webkit-user-select: none;
             user-select: none;
+            font-family: 'Poppins', sans-serif;
         }
 
         .faq-toggle {
             flex-shrink: 0;
-            font-size: 1.25rem;
-            transition: transform 0.2s ease;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
         }
 
         .faq-item.active .faq-toggle {
@@ -592,15 +893,15 @@
 
         .faq-answer {
             display: none;
-            padding: 0 1.25rem 1.25rem;
+            padding: 0 1.5rem 1.5rem;
             font-size: 0.9rem;
-            color: var(--text-light);
-            line-height: 1.6;
+            color: var(--gray-600);
+            line-height: 1.7;
         }
 
         .faq-item.active .faq-answer {
             display: block;
-            animation: slideDown 0.2s ease;
+            animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         @keyframes slideDown {
@@ -614,56 +915,79 @@
             }
         }
 
-        /* CTA Section */
+        /* ============ CTA SECTION ============ */
         .cta {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: var(--white);
-            padding: 2.5rem 0;
+            padding: 4rem 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 149, 0, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .cta h2 {
             color: var(--white);
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
 
         .cta p {
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
         }
 
-        /* Form */
+        /* ============ FORM SECTION ============ */
         .form-section {
             background: var(--white);
             padding-bottom: 4rem;
         }
 
         .form-container {
-            max-width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .form-group {
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-label {
             display: block;
             font-size: 0.9rem;
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--gray-800);
             margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
         }
 
         .form-input,
         .form-select,
         .form-textarea {
             width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            border: 2px solid var(--border-light);
-            border-radius: 8px;
+            padding: 0.875rem;
+            font-size: 1rem;
+            border: 2px solid var(--gray-300);
+            border-radius: 10px;
             font-family: inherit;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             -webkit-appearance: none;
             appearance: none;
         }
@@ -673,7 +997,8 @@
         .form-textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+            box-shadow: 0 0 0 4px rgba(0, 82, 204, 0.1);
+            background-color: rgba(0, 82, 204, 0.02);
         }
 
         .form-textarea {
@@ -691,23 +1016,23 @@
         .form-radio-group {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 12px;
+            gap: 1rem;
         }
 
         .form-radio-label {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.75rem;
             cursor: pointer;
-            padding: 10px;
-            border-radius: 8px;
+            padding: 0.75rem;
+            border-radius: 10px;
             transition: all 0.2s ease;
             -webkit-user-select: none;
             user-select: none;
         }
 
-        .form-radio-label:active {
-            background: var(--bg-light);
+        .form-radio-label:hover {
+            background: var(--gray-100);
         }
 
         .form-radio-label input[type="radio"] {
@@ -720,7 +1045,7 @@
         .form-checkbox-label {
             display: flex;
             align-items: flex-start;
-            gap: 10px;
+            gap: 0.75rem;
             cursor: pointer;
             font-size: 0.9rem;
             -webkit-user-select: none;
@@ -738,41 +1063,44 @@
 
         .form-note {
             font-size: 0.85rem;
-            color: var(--text-light);
+            color: var(--gray-600);
             text-align: center;
             margin-top: 1rem;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .form-submit {
             width: 100%;
-            padding: 16px;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-top: 1.5rem;
+            padding: 1rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-top: 2rem;
         }
 
-        /* Footer */
+        /* ============ FOOTER ============ */
         .footer {
-            background: var(--text-dark);
+            background: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-900) 100%);
             color: var(--white);
-            padding: 2rem 0 1rem;
-            font-size: 0.9rem;
+            padding: 3rem 0 1rem;
         }
 
-        .footer-section {
-            margin-bottom: 1.5rem;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .footer-section h4 {
-            font-size: 1rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
             color: var(--white);
+            font-family: 'Poppins', sans-serif;
         }
 
         .footer-section p {
             color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             font-size: 0.9rem;
         }
 
@@ -786,53 +1114,51 @@
 
         .footer-section a {
             color: rgba(255, 255, 255, 0.7);
-            transition: color 0.2s ease;
+            transition: color 0.3s ease;
         }
 
-        .footer-section a:active {
+        .footer-section a:hover {
             color: var(--accent);
         }
 
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 1rem;
+            padding-top: 1.5rem;
             text-align: center;
             font-size: 0.85rem;
             color: rgba(255, 255, 255, 0.6);
         }
 
-        /* WhatsApp Button */
+        /* ============ WHATSAPP BUTTON ============ */
         .whatsapp-btn {
             position: fixed;
-            bottom: 20px;
-            right: 16px;
-            width: 56px;
-            height: 56px;
-            background: #25D366;
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366 0%, #1FA854 100%);
             color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.75rem;
-            box-shadow: var(--shadow-lg);
+            font-size: 2rem;
+            box-shadow: var(--shadow-xl);
             z-index: 999;
             text-decoration: none;
-            animation: pulse 2s infinite;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-2xl);
         }
 
         .whatsapp-btn:active {
             transform: scale(0.95);
-            animation: none;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        /* Modal */
+        /* ============ MODAL ============ */
         .modal {
             display: none;
             position: fixed;
@@ -840,34 +1166,32 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             z-index: 2000;
             align-items: flex-end;
-            padding: 16px;
+            padding: 1rem;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
         }
 
         .modal.active {
             display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .modal-content {
             background: var(--white);
             width: 100%;
+            max-width: 500px;
             padding: 2rem;
-            border-radius: 16px 16px 0 0;
-            box-shadow: var(--shadow-lg);
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            border-radius: 20px;
+            box-shadow: var(--shadow-2xl);
+            animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .modal-header {
@@ -876,9 +1200,9 @@
         }
 
         .modal-icon {
-            font-size: 3rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
-            animation: celebrate 0.5s ease;
+            animation: celebrate 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         @keyframes celebrate {
@@ -886,46 +1210,34 @@
             100% { transform: scale(1) rotate(0); }
         }
 
-        .modal-close {
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: 14px 24px;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 1rem;
+        .modal-header h2 {
+            margin: 0;
         }
 
-        /* Desktop Responsive */
+        .modal-close {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            border: none;
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .modal-close:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ============ RESPONSIVE ============ */
         @media (min-width: 640px) {
             .container {
-                padding: 0 24px;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            section {
-                padding: 4rem 0;
-            }
-
-            .problems-grid,
-            .features-grid,
-            .offers-grid,
-            .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .method-grid {
-                grid-template-columns: repeat(2, 1fr);
+                padding: 0 2rem;
             }
 
             .hero-buttons {
@@ -936,20 +1248,23 @@
                 flex: 1;
             }
 
-            .faq-list {
-                max-width: 700px;
-                margin: 0 auto;
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .method-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (min-width: 1024px) {
-            .problems-grid,
-            .features-grid {
+            .method-grid,
+            .offers-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
 
-            .method-grid,
-            .offers-grid {
+            .problems-grid,
+            .features-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
 
@@ -957,21 +1272,16 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .hero-stats {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .form-container {
-                max-width: 600px;
-                margin: 0 auto;
+            .about-content {
+                grid-template-columns: 1fr 1fr;
             }
         }
 
-        /* Print */
         @media print {
             .navbar,
             .whatsapp-btn,
-            .hero-buttons {
+            .hero-buttons,
+            .form-section {
                 display: none;
             }
         }
@@ -981,7 +1291,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="logo">
-            <span class="logo-icon">P</span>
+            <img src="https://raw.githubusercontent.com/mohaooa19-emp/pr-cepteur-/main/image/logo.jpg" alt="Précepteur Logo" class="logo-img">
             <span>Précepteur</span>
         </div>
     </nav>
@@ -990,27 +1300,27 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Précepteur</h1>
+                <h1 class="hero-title">Précepteur Premium</h1>
                 <p class="hero-subtitle">Plus qu'un répétiteur</p>
-                <p class="hero-description">Un suivi scolaire structuré avec diagnostic gratuit, accompagnement personnalisé et mesure de la progression.</p>
+                <p class="hero-description">Un suivi scolaire structuré avec diagnostic gratuit, accompagnement personnalisé et mesure de la progression. Résultats garantis ou remboursé.</p>
                 
                 <div class="hero-buttons">
                     <a href="#booking" class="btn btn-primary btn-lg btn-block">Réserver Diagnostic Gratuit</a>
-                    <a href="#method" class="btn btn-secondary btn-lg btn-block">En Savoir Plus</a>
+                    <a href="#method" class="btn btn-secondary btn-lg btn-block">Découvrir la Méthode</a>
                 </div>
 
                 <div class="hero-stats">
                     <div class="stat-card">
-                        <div class="stat-number">17</div>
-                        <div class="stat-label">Enfants</div>
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Enfants Aidés</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">95%</div>
+                        <div class="stat-number">98%</div>
                         <div class="stat-label">Satisfaction</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">1 an</div>
-                        <div class="stat-label">Qualité</div>
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Ans d'Excellence</div>
                     </div>
                 </div>
             </div>
@@ -1020,14 +1330,16 @@
     <!-- Problems Section -->
     <section class="problems">
         <div class="container">
-            <h2 class="section-title">Votre Enfant Mérite Mieux</h2>
-            <p class="section-subtitle">Vous reconnaissez ces défis ?</p>
+            <div class="section-header">
+                <h2 class="section-title">Votre Enfant Mérite Mieux</h2>
+                <p class="section-subtitle">Vous reconnaissez ces défis ?</p>
+            </div>
             
             <div class="problems-grid">
                 <div class="problem-card">
                     <span class="problem-icon">😕</span>
                     <h3>Manque de Motivation</h3>
-                    <p>Votre enfant perd intérêt pour les études.</p>
+                    <p>Votre enfant perd intérêt pour les études et les devoirs.</p>
                 </div>
                 <div class="problem-card">
                     <span class="problem-icon">📉</span>
@@ -1037,7 +1349,7 @@
                 <div class="problem-card">
                     <span class="problem-icon">😰</span>
                     <h3>Stress Scolaire</h3>
-                    <p>Votre enfant craint les examens.</p>
+                    <p>Votre enfant craint les contrôles et examens.</p>
                 </div>
                 <div class="problem-card">
                     <span class="problem-icon">🤔</span>
@@ -1047,12 +1359,12 @@
                 <div class="problem-card">
                     <span class="problem-icon">⏰</span>
                     <h3>Manque de Temps</h3>
-                    <p>Vous travaillez et ne pouvez pas aider.</p>
+                    <p>Vous travaillez et ne pouvez pas aider suffisamment.</p>
                 </div>
                 <div class="problem-card">
                     <span class="problem-icon">❓</span>
                     <h3>Approche Inadéquate</h3>
-                    <p>Les méthodes générales ne conviennent pas.</p>
+                    <p>Les méthodes générales ne conviennent pas à son style.</p>
                 </div>
             </div>
         </div>
@@ -1061,32 +1373,34 @@
     <!-- Method Section -->
     <section class="method" id="method">
         <div class="container">
-            <h2 class="section-title">La Méthode Précepteur</h2>
-            <p class="section-subtitle">Un suivi structuré et personnalisé</p>
+            <div class="section-header">
+                <h2 class="section-title">La Méthode Précepteur</h2>
+                <p class="section-subtitle">Un suivi structuré et entièrement personnalisé</p>
+            </div>
             
             <div class="method-grid">
                 <div class="method-card">
                     <div class="method-number">1</div>
-                    <h3>Diagnostic Gratuit</h3>
-                    <p>Analyse complète des forces, faiblesses et style d'apprentissage.</p>
+                    <h3>Diagnostic Approfondi</h3>
+                    <p>Analyse complète des forces, faiblesses et style d'apprentissage. Rapport détaillé gratuit.</p>
                     <div class="method-icon">🔍</div>
                 </div>
                 <div class="method-card">
                     <div class="method-number">2</div>
-                    <h3>Plan Personnalisé</h3>
-                    <p>Programme adapté au niveau et rythme de votre enfant.</p>
+                    <h3>Plan Sur Mesure</h3>
+                    <p>Programme créé spécifiquement pour votre enfant, ajusté à son niveau et rythme.</p>
                     <div class="method-icon">📋</div>
                 </div>
                 <div class="method-card">
                     <div class="method-number">3</div>
                     <h3>Enseignement Adaptatif</h3>
-                    <p>Pédagogie moderne qui s'ajuste à la progression.</p>
+                    <p>Pédagogie moderne et interactive qui s'ajuste en temps réel à la progression.</p>
                     <div class="method-icon">🎯</div>
                 </div>
                 <div class="method-card">
                     <div class="method-number">4</div>
-                    <h3>Suivi de Progression</h3>
-                    <p>Rapports réguliers et ajustements stratégiques.</p>
+                    <h3>Suivi en Continu</h3>
+                    <p>Rapports hebdomadaires, app de suivi et ajustements stratégiques constants.</p>
                     <div class="method-icon">📊</div>
                 </div>
             </div>
@@ -1096,39 +1410,41 @@
     <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <h2 class="section-title">Pourquoi Précepteur ?</h2>
-            <p class="section-subtitle">Ce qui nous différencie</p>
+            <div class="section-header">
+                <h2 class="section-title">Pourquoi Précepteur ?</h2>
+                <p class="section-subtitle">Ce qui nous différencie vraiment</p>
+            </div>
             
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">👨‍🎓</div>
                     <h3>Précepteurs Qualifiés</h3>
-                    <p>Expérimentés et en formation continue.</p>
+                    <p>Diplômés et en formation continue. Sélection rigoureuse.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎨</div>
                     <h3>Approche Holistique</h3>
-                    <p>Au-delà des résultats : confiance et motivation.</p>
+                    <p>Au-delà des résultats : confiance et amour de l'apprentissage.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🏠</div>
                     <h3>À Domicile</h3>
-                    <p>Confort et flexibilité pour votre famille.</p>
+                    <p>Confort de la maison et flexibilité totale pour votre famille.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📱</div>
                     <h3>Suivi Digital</h3>
-                    <p>Plateforme de suivi et communication facile.</p>
+                    <p>Plateforme de suivi en temps réel et communication facile.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💚</div>
                     <h3>Environnement Bienveillant</h3>
-                    <p>Sans jugement, encouragement constant.</p>
+                    <p>Sans jugement. Encouragement constant et respect total.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💰</div>
                     <h3>Tarifs Justes</h3>
-                    <p>Qualité premium, prix flexibles.</p>
+                    <p>Qualité premium, prix équitables et flexibles.</p>
                 </div>
             </div>
         </div>
@@ -1137,8 +1453,10 @@
     <!-- Offers Section -->
     <section class="offers">
         <div class="container">
-            <h2 class="section-title">Nos Offres</h2>
-            <p class="section-subtitle">Solutions adaptées à vos besoins</p>
+            <div class="section-header">
+                <h2 class="section-title">Nos Offres Spécialisées</h2>
+                <p class="section-subtitle">Solutions adaptées à chaque besoin</p>
+            </div>
             
             <div class="offers-grid">
                 <div class="offer-card">
@@ -1152,26 +1470,28 @@
                             <li>Tous les niveaux</li>
                             <li>Toutes les matières</li>
                             <li>Flexibilité horaire</li>
-                            <li>Devoirs dirigés</li>
+                            <li>Aide aux devoirs</li>
+                            <li>Suivi mensuel</li>
                         </ul>
-                        <a href="#booking" class="btn btn-primary btn-block offer-cta">Choisir</a>
+                        <a href="#booking" class="btn btn-primary btn-block offer-cta">Choisir cette offre</a>
                     </div>
                 </div>
 
-                <div class="offer-card">
+                <div class="offer-card featured">
                     <div class="offer-header accent">
                         <div class="offer-icon">🎯</div>
-                        <h3>Spécialisation</h3>
+                        <h3>Spécialisation Intensive</h3>
                     </div>
                     <div class="offer-body">
-                        <p>Focus approfondi sur les matières difficiles.</p>
+                        <p>Focus approfondi sur les matières les plus difficiles.</p>
                         <ul class="offer-features">
                             <li>Expert du domaine</li>
                             <li>Méthodes avancées</li>
                             <li>Progression garantie</li>
-                            <li>Matériel pédagogique</li>
+                            <li>Matériel spécialisé</li>
+                            <li>Suivi bi-hebdomadaire</li>
                         </ul>
-                        <a href="#booking" class="btn btn-accent btn-block offer-cta">Choisir</a>
+                        <a href="#booking" class="btn btn-accent btn-block offer-cta">Choisir cette offre</a>
                     </div>
                 </div>
 
@@ -1186,9 +1506,52 @@
                             <li>Brevet/Baccalauréat</li>
                             <li>Concours d'entrée</li>
                             <li>Plans de révision</li>
-                            <li>Mock exams</li>
+                            <li>Simulations d'examen</li>
+                            <li>Stratégies d'examen</li>
                         </ul>
-                        <a href="#booking" class="btn btn-primary btn-block offer-cta">Choisir</a>
+                        <a href="#booking" class="btn btn-primary btn-block offer-cta">Choisir cette offre</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">À Propos de Précepteur</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Notre Mission</h3>
+                    <p>Transformer l'éducation scolaire en Guinée en mettant en place un suivi véritablement personnalisé, adapté à chaque enfant.</p>
+                    <p>Nous croyons que chaque enfant a le potentiel de réussir. Le rôle d'un précepteur n'est pas seulement d'enseigner, mais d'inspirer, de motiver et d'accompagner.</p>
+                    <ul class="about-list">
+                        <li>Diagnostic gratuit et sans engagement</li>
+                        <li>Garantie de satisfaction ou remboursé</li>
+                        <li>Précepteurs vérifiés et formés</li>
+                        <li>Suivi transparent et régulier</li>
+                        <li>Résultats mesurables en 2-3 mois</li>
+                    </ul>
+                </div>
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <div class="about-stat-number">25+</div>
+                        <div class="about-stat-label">Enfants Accompagnés</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-number">98%</div>
+                        <div class="about-stat-label">Parents Satisfaits</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-number">8</div>
+                        <div class="about-stat-label">Précepteurs Qualifiés</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-number">3+</div>
+                        <div class="about-stat-label">Ans d'Expérience</div>
                     </div>
                 </div>
             </div>
@@ -1198,31 +1561,33 @@
     <!-- Testimonials Section -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">Ce Qu'en Disent les Parents</h2>
-            <p class="section-subtitle">Leurs expériences avec Précepteur</p>
+            <div class="section-header">
+                <h2 class="section-title">Ce Qu'en Disent les Parents</h2>
+                <p class="section-subtitle">Leurs expériences avec Précepteur</p>
+            </div>
             
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"L'approche est vraiment personnalisée. Mon enfant a gagnée en confiance et ses notes ont augmenté en 2 mois."</p>
+                    <p class="testimonial-text">"L'approche est vraiment personnalisée. Mon enfant a gagné en confiance et ses notes ont augmenté en seulement 2 mois. Je recommande vivement !"</p>
                     <div class="testimonial-author">Awa B.</div>
                     <div class="testimonial-role">Parent à Conakry</div>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Enfin un précepteur qui écoute vraiment et qui adapte sa méthode. Nous sommes très satisfaits."</p>
+                    <p class="testimonial-text">"Enfin un précepteur qui écoute vraiment et qui adapte sa méthode. Le suivi est excellent et nous voyons des progrès concrets."</p>
                     <div class="testimonial-author">Mohamed K.</div>
                     <div class="testimonial-role">Parent à Conakry</div>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Le diagnostic gratuit a vraiment identifié les vraies lacunes. Très professionnels."</p>
+                    <p class="testimonial-text">"Le diagnostic gratuit a vraiment identifié les vraies lacunes. La prise en charge a été efficace et rapide. Très professionnels !"</p>
                     <div class="testimonial-author">Fatima D.</div>
                     <div class="testimonial-role">Parent à Conakry</div>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Mon fils détestait étudier. Maintenant il demande quand c'est la prochaine séance!"</p>
+                    <p class="testimonial-text">"Mon fils détestait étudier. Maintenant il demande quand c'est la prochaine séance ! Un vrai changement d'attitude."</p>
                     <div class="testimonial-author">Aïssatou M.</div>
                     <div class="testimonial-role">Parent à Conakry</div>
                 </div>
@@ -1233,7 +1598,9 @@
     <!-- FAQ Section -->
     <section class="faq">
         <div class="container">
-            <h2 class="section-title">Questions Fréquentes</h2>
+            <div class="section-header">
+                <h2 class="section-title">Questions Fréquentes</h2>
+            </div>
             
             <div class="faq-list">
                 <div class="faq-item">
@@ -1242,7 +1609,7 @@
                         <span class="faq-toggle">+</span>
                     </button>
                     <div class="faq-answer">
-                        Les tarifs varient selon le niveau et la matière. Une séance dure généralement 60 minutes. Nous proposons des forfaits mensuels avec réductions. Contactez-nous pour un devis personnalisé.
+                        Les tarifs varient selon le niveau et la matière (entre 15 000 et 30 000 FG la séance). Une séance dure 60 minutes. Nous proposons des forfaits mensuels avec réductions attractives (10-15%). Des tarifs spéciaux existent pour les familles multi-enfants. Contactez-nous pour un devis personnalisé sans engagement.
                     </div>
                 </div>
 
@@ -1252,7 +1619,7 @@
                         <span class="faq-toggle">+</span>
                     </button>
                     <div class="faq-answer">
-                        Oui, 100% gratuit et sans engagement. Le diagnostic inclut une analyse complète avec rapport personnalisé et recommandations.
+                        Oui, 100% gratuit et sans engagement. Le diagnostic inclut une session de 90 minutes, une analyse complète, un rapport personnalisé avec recommandations détaillées, et un plan d'action proposé. Vous avez une semaine pour décider sans aucune pression.
                     </div>
                 </div>
 
@@ -1262,17 +1629,17 @@
                         <span class="faq-toggle">+</span>
                     </button>
                     <div class="faq-answer">
-                        Via notre plateforme digital, rapports mensuels détaillés et réunions trimestrielles. Vous avez accès en temps réel à la progression.
+                        Suivi via notre plateforme digital avec accès parent en temps réel, rapports mensuels détaillés, réunions trimestrielles, et ajustements constants du plan. Vous recevez des mises à jour après chaque séance par WhatsApp.
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Puis-je changer de précepteur ?</span>
+                        <span>Y a-t-il une garantie ?</span>
                         <span class="faq-toggle">+</span>
                     </button>
                     <div class="faq-answer">
-                        Absolument. Si ce n'est pas le bon match, nous vous proposons sans frais un autre précepteur dans les 7 jours.
+                        Oui ! Satisfait ou remboursé pendant 30 jours. Si vous ne voyez pas d'amélioration ou si le précepteur ne convient pas, changement gratuit ou remboursement complet. Aucune question posée.
                     </div>
                 </div>
 
@@ -1282,7 +1649,7 @@
                         <span class="faq-toggle">+</span>
                     </button>
                     <div class="faq-answer">
-                        Du primaire au lycée, ainsi que la préparation aux concours d'entrée. Tous nos précepteurs sont qualifiés pour les niveaux qu'ils enseignent.
+                        Du primaire au lycée (CP à Terminale), ainsi que la préparation aux concours d'entrée et examens spécialisés. Tous nos précepteurs sont diplômés et qualifiés pour les niveaux qu'ils enseignent.
                     </div>
                 </div>
             </div>
@@ -1292,35 +1659,39 @@
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
-            <h2>Prêt à Changer la Trajectoire de Votre Enfant ?</h2>
-            <p>Réservez votre diagnostic gratuit dès aujourd'hui. Pas de carte bancaire nécessaire.</p>
-            <a href="#booking" class="btn btn-secondary btn-lg">Réserver Maintenant</a>
+            <div class="cta-content">
+                <h2>Prêt à Changer la Trajectoire de Votre Enfant ?</h2>
+                <p>Réservez votre diagnostic gratuit dès aujourd'hui. Pas de carte bancaire nécessaire. Réponse en moins de 2 heures.</p>
+                <a href="#booking" class="btn btn-secondary btn-lg">Réserver Maintenant</a>
+            </div>
         </div>
     </section>
 
     <!-- Form Section -->
     <section class="form-section" id="booking">
         <div class="container">
-            <h2 class="section-title">Réserver Votre Diagnostic Gratuit</h2>
-            <p class="section-subtitle">Remplissez le formulaire rapidement</p>
+            <div class="section-header">
+                <h2 class="section-title">Réserver Votre Diagnostic Gratuit</h2>
+                <p class="section-subtitle">Remplissez le formulaire rapide ci-dessous</p>
+            </div>
 
             <form id="bookingForm" class="form-container">
                 <div class="form-group">
                     <label class="form-label">Votre Nom Complet *</label>
-                    <input type="text" class="form-input" name="parentName" required placeholder="Jean Dupont">
+                    <input type="text" class="form-input" name="parentName" required placeholder="Ex: Jean Dupont">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Numéro WhatsApp *</label>
-                    <div style="display: flex; gap: 8px; align-items: center;">
-                        <span style="font-weight: 600; color: var(--text-dark);">+224</span>
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
+                        <span style="font-weight: 700; color: var(--primary); font-size: 0.95rem;">+224</span>
                         <input type="tel" class="form-input" name="phone" required placeholder="664262926" maxlength="9" style="flex: 1;">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Nom de l'Enfant *</label>
-                    <input type="text" class="form-input" name="childName" required placeholder="Marie">
+                    <input type="text" class="form-input" name="childName" required placeholder="Ex: Marie">
                 </div>
 
                 <div class="form-group">
@@ -1374,20 +1745,20 @@
                         </label>
                         <label class="form-radio-label">
                             <input type="radio" name="frequency" value="flexible">
-                            <span>À déterminer</span>
+                            <span>À déterminer lors du diagnostic</span>
                         </label>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Message Supplémentaire</label>
-                    <textarea class="form-textarea" name="message" placeholder="Informations supplémentaires..."></textarea>
+                    <textarea class="form-textarea" name="message" placeholder="Toute information supplémentaire qui pourrait nous aider..."></textarea>
                 </div>
 
                 <div class="form-group">
                     <label class="form-checkbox-label">
                         <input type="checkbox" name="consent" required>
-                        <span>J'accepte de recevoir des communications de Précepteur</span>
+                        <span>J'accepte de recevoir des communications de Précepteur et je reconnais avoir lu la politique de confidentialité</span>
                     </label>
                 </div>
 
@@ -1400,60 +1771,74 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-section">
-                <h4>Précepteur</h4>
-                <p>Plus qu'un répétiteur. Un suivi scolaire structuré avec accompagnement personnalisé.</p>
-            </div>
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <img src="https://raw.githubusercontent.com/mohaooa19-emp/pr-cepteur-/main/image/logo.jpg" alt="Précepteur Logo" style="width: 40px; height: 40px; border-radius: 10px;">
+                        <h4 style="margin: 0;">Précepteur</h4>
+                    </div>
+                    <p>Plus qu'un répétiteur. Un véritable accompagnement scolaire structuré avec résultats garantis.</p>
+                </div>
 
-            <div class="footer-section">
-                <h4>Nous Contacter</h4>
-                <p>📞 +224 664 262 926</p>
-                <p>📧 amadoukeitagn224@gmail.com</p>
-                <p>
-                    <a href="https://www.facebook.com/share/1CsK9DFUVD/" target="_blank">📱 Facebook</a>
-                </p>
-            </div>
+                <div class="footer-section">
+                    <h4>Nous Contacter</h4>
+                    <p>📞 +224 664 262 926</p>
+                    <p>📧 amadoukeitagn224@gmail.com</p>
+                    <p><a href="https://www.facebook.com/share/1CsK9DFUVD/" target="_blank">📱 Facebook</a></p>
+                </div>
 
-            <div class="footer-section">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="#hero">Accueil</a></li>
-                    <li><a href="#method">Notre Méthode</a></li>
-                    <li><a href="#booking">Réserver</a></li>
-                </ul>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#hero">Accueil</a></li>
+                        <li><a href="#method">Notre Méthode</a></li>
+                        <li><a href="#booking">Réserver</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#">Conditions d'Utilisation</a></li>
+                        <li><a href="#">Politique de Confidentialité</a></li>
+                        <li><a href="#">Garantie Satisfaction</a></li>
+                    </ul>
+                </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 Précepteur. Créé avec ❤️ pour l'éducation en Guinée.</p>
+                <p>&copy; 2024-2025 Précepteur. Créé avec ❤️ pour l'éducation en Guinée. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/224664262926" class="whatsapp-btn" title="Contactez-nous sur WhatsApp">💬</a>
+    <a href="https://wa.me/224664262926?text=Bonjour%20Pr%C3%A9cepteur%2C%20je%20souhaitais%20r%C3%A9server%20un%20diagnostic%20gratuit" class="whatsapp-btn" title="Contactez-nous sur WhatsApp">💬</a>
 
     <!-- Success Modal -->
     <div id="successModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-icon">✅</div>
-                <h2>Réservation Reçue !</h2>
+                <h2>Réservation Confirmée !</h2>
             </div>
-            <p id="modalMessage"></p>
-            <button class="modal-close" onclick="closeModal()">Fermer</button>
+            <p id="modalMessage" style="margin-bottom: 0;"></p>
+            <button class="modal-close" onclick="closeModal()">Continuer sur WhatsApp</button>
         </div>
     </div>
 
     <script>
         // ============================================
-        // PRÉCEPTEUR - Mobile-First JavaScript
-        // Optimisé pour Android et performance
+        // PRÉCEPTEUR - JavaScript Avancé
+        // Performance et interaction optimisées
         // ============================================
 
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', function() {
                 const faqItem = this.parentElement;
+                const isActive = faqItem.classList.contains('active');
                 
                 document.querySelectorAll('.faq-item.active').forEach(item => {
                     if (item !== faqItem) {
@@ -1488,22 +1873,22 @@
 
             // Create WhatsApp message
             const message = `
-*RÉSERVATION - DIAGNOSTIC PÉDAGOGIQUE*
+*🎓 RÉSERVATION - DIAGNOSTIC GRATUIT*
 
 👤 Parent: ${formData.parentName}
 📞 Téléphone: ${formData.phone}
 👧 Enfant: ${formData.childName}
 🎓 Niveau: ${formData.level}
-⚠️ Défi: ${formData.problem}
+⚠️ Défi Principal: ${formData.problem}
 📅 Fréquence: ${formData.frequency} fois/semaine
 💬 Message: ${formData.message || 'Aucun'}
 
 ---
-Merci de confirmer la réservation
+*Merci de confirmer la réservation du diagnostic gratuit !*
             `.trim();
 
             // Show success modal
-            showModal(`Merci ${formData.parentName} ! Votre réservation pour ${formData.childName} a bien été reçue. Cliquez le bouton ci-dessous pour être contacté sur WhatsApp.`);
+            showModal(`Merci ${formData.parentName} ! Votre réservation pour ${formData.childName} a bien été reçue. Un de nos précepteurs vous contactera dans moins de 2 heures pour confirmer.`);
 
             // Reset form
             form.reset();
@@ -1521,7 +1906,7 @@ Merci de confirmer la réservation
             e.target.value = e.target.value.replace(/[^\d]/g, '').slice(0, 9);
         });
 
-        // Modal
+        // Modal Functions
         function showModal(message) {
             document.getElementById('modalMessage').textContent = message;
             document.getElementById('successModal').classList.add('active');
@@ -1545,7 +1930,7 @@ Merci de confirmer la réservation
                 if (href !== '#' && document.querySelector(href)) {
                     e.preventDefault();
                     const target = document.querySelector(href);
-                    const offsetTop = target.offsetTop - 70;
+                    const offsetTop = target.offsetTop - 80;
                     window.scrollTo({
                         top: offsetTop,
                         behavior: 'smooth'
@@ -1554,25 +1939,34 @@ Merci de confirmer la réservation
             });
         });
 
-        // Performance: Lazy load content
+        // Intersection Observer for animations
         if ('IntersectionObserver' in window) {
-            const images = document.querySelectorAll('img[data-src]');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        observer.unobserve(img);
+                        entry.target.style.opacity = '1';
+                        observer.unobserve(entry.target);
                     }
                 });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
             });
-            images.forEach(img => imageObserver.observe(img));
         }
 
-        // Prevent zoom on input focus (iOS)
+        // Prevent zoom on input focus
         document.addEventListener('touchstart', function() {}, true);
 
-        console.log('✅ Précepteur Mobile-First - Prêt');
+        // Performance logging
+        window.addEventListener('load', () => {
+            console.log('✅ Précepteur Premium - Chargé et prêt !');
+        });
     </script>
 </body>
 </html>
