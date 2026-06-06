@@ -7,28 +7,19 @@
     <meta name="keywords" content="soutien scolaire, précepteur, Guinée, cours particuliers, accompagnement, Conakry">
     <meta name="author" content="Précepteur">
     <meta name="theme-color" content="#0052CC">
-    <meta property="og:title" content="Précepteur - Plus qu'un répétiteur">
-    <meta property="og:description" content="Soutien scolaire premium à domicile. Diagnostic gratuit, accompagnement personnalisé et progression garantie.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><rect fill='%230052CC' width='200' height='200' rx='40'/><text x='100' y='140' font-size='120' fill='white' font-weight='bold' text-anchor='middle'>P</text></svg>">
-    
     <title>Précepteur - Soutien Scolaire Premium</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%230052CC;stop-opacity:1' /><stop offset='100%' style='stop-color:%23FF9500;stop-opacity:1' /></linearGradient></defs><rect fill='url(%23grad)' width='100' height='100' rx='20'/><text x='50' y='70' font-size='60' fill='white' font-weight='bold' text-anchor='middle'>P</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%230052CC'/><stop offset='100%25' style='stop-color:%23FF9500'/></linearGradient></defs><rect fill='url(%23grad)' width='100' height='100' rx='20'/><text x='50' y='70' font-size='60' fill='white' font-weight='bold' text-anchor='middle'>P</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap">
 
     <style>
         /* ============================================
-           PRÉCEPTEUR 
-           Design sophistiqué avec animations fluides
+           PRÉCEPTEUR v2 — Design amélioré
+           + Splash screen besoin.jpg
+           + Nav liens + scroll progress + fixes
            ============================================ */
 
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         :root {
             --primary: #0052CC;
@@ -38,9 +29,6 @@
             --accent-light: #FFF5E6;
             --accent-dark: #E67E22;
             --success: #10B981;
-            --success-light: #D1FAE5;
-            --warning: #F59E0B;
-            --danger: #EF4444;
             --white: #FFFFFF;
             --gray-50: #F9FAFB;
             --gray-100: #F3F4F6;
@@ -52,1414 +40,678 @@
             --gray-700: #374151;
             --gray-800: #1F2937;
             --gray-900: #111827;
-            
-            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0,0,0,0.25);
         }
 
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
+        html { scroll-behavior: smooth; font-size: 16px; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
+            background: var(--gray-50);
             color: var(--gray-800);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
+        /* ============ SCROLL PROGRESS BAR ============ */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        /* ============ SPLASH SCREEN ============ */
+        #splash {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            background: linear-gradient(135deg, #001A4D 0%, #0038A8 50%, #001A4D 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            transition: opacity 0.7s ease, transform 0.7s ease;
+            overflow: hidden;
+        }
+
+        #splash.hidden {
+            opacity: 0;
+            transform: scale(1.05);
+            pointer-events: none;
+        }
+
+        #splash::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255,149,0,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0,82,204,0.3) 0%, transparent 50%);
+        }
+
+        .splash-image-wrap {
+            position: relative;
+            width: min(90vw, 520px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,149,0,0.3);
+            animation: splashPop 0.8s cubic-bezier(0.34,1.56,0.64,1) both;
+        }
+
+        @keyframes splashPop {
+            from { opacity: 0; transform: scale(0.8) translateY(30px); }
+            to   { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .splash-image-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .splash-overlay-bar {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,10,40,0.85));
+            padding: 2.5rem 2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .splash-logo-mini {
+            width: 44px; height: 44px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+            flex-shrink: 0;
+        }
+
+        .splash-tagline {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .splash-tagline span {
+            color: var(--accent);
+        }
+
+        .splash-loader {
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.6s 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .splash-loader-bar {
+            width: 200px;
+            height: 3px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .splash-loader-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 99px;
+            animation: loadFill 2.2s cubic-bezier(0.4,0,0.2,1) forwards;
+        }
+
+        @keyframes loadFill {
+            0%   { width: 0%; }
+            60%  { width: 70%; }
+            100% { width: 100%; }
+        }
+
+        .splash-skip {
+            margin-top: 1.2rem;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.45);
+            cursor: pointer;
+            letter-spacing: 0.05em;
+            transition: color 0.2s;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            animation: fadeInUp 0.6s 0.8s both;
+        }
+
+        .splash-skip:hover { color: rgba(255,255,255,0.8); }
+
         /* ============ TYPOGRAPHY ============ */
         h1 {
             font-family: 'Poppins', sans-serif;
-            font-size: clamp(1.75rem, 5vw, 3.5rem);
             font-weight: 800;
             line-height: 1.2;
-            color: var(--gray-900);
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        h2 { font-family: 'Poppins', sans-serif; font-size: clamp(1.5rem,4vw,2.5rem); font-weight: 700; line-height: 1.3; color: var(--gray-900); }
+        h3 { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 600; line-height: 1.4; color: var(--gray-800); }
+        p  { font-size: 0.95rem; line-height: 1.7; color: var(--gray-600); }
+        a  { color: var(--primary); text-decoration: none; transition: all 0.3s ease; }
 
-        h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            font-weight: 700;
-            line-height: 1.3;
-            color: var(--gray-900);
-        }
-
-        h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-            line-height: 1.4;
-            color: var(--gray-800);
-        }
-
-        p {
-            font-size: 0.95rem;
-            line-height: 1.7;
-            color: var(--gray-600);
-        }
-
-        a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* ============ CONTAINER ============ */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            padding: 0 1rem;
-            margin: 0 auto;
-        }
+        .container { width: 100%; max-width: 1200px; padding: 0 1.25rem; margin: 0 auto; }
+        section { padding: 4rem 0; position: relative; }
 
         /* ============ BUTTONS ============ */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            padding: 0.875rem 1.5rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            text-decoration: none;
-            white-space: nowrap;
-            -webkit-user-select: none;
-            user-select: none;
-            font-family: 'Poppins', sans-serif;
-            position: relative;
-            overflow: hidden;
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+            padding: 0.875rem 1.5rem; font-size: 0.95rem; font-weight: 600; border: none;
+            border-radius: 10px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            text-decoration: none; white-space: nowrap; font-family: 'Poppins', sans-serif;
+            position: relative; overflow: hidden;
         }
+        .btn::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0); transition: background 0.3s; }
+        .btn:hover::after { background: rgba(255,255,255,0.1); }
+        .btn-primary  { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; box-shadow: var(--shadow-lg); }
+        .btn-primary:hover  { box-shadow: var(--shadow-xl); transform: translateY(-2px); }
+        .btn-secondary { background: #fff; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-secondary:hover { background: var(--primary-light); transform: translateY(-2px); }
+        .btn-accent   { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: #fff; box-shadow: var(--shadow-lg); }
+        .btn-accent:hover   { box-shadow: var(--shadow-xl); transform: translateY(-2px); }
+        .btn-block { width: 100%; }
+        .btn-lg   { padding: 1rem 2rem; font-size: 1.05rem; border-radius: 12px; }
+        .btn-sm   { padding: 0.5rem 1rem; font-size: 0.875rem; border-radius: 8px; }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn:active::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--white);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-primary:hover {
-            box-shadow: var(--shadow-xl);
-            transform: translateY(-2px);
-        }
-
-        .btn-primary:active {
-            transform: translateY(0);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-secondary {
-            background: var(--white);
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-        }
-
-        .btn-accent {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            color: var(--white);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-accent:hover {
-            box-shadow: var(--shadow-xl);
-            transform: translateY(-2px);
-        }
-
-        .btn-block {
-            width: 100%;
-        }
-
-        .btn-lg {
-            padding: 1rem 2rem;
-            font-size: 1.05rem;
-            border-radius: 12px;
-        }
-
-        .btn-sm {
-            padding: 0.5rem 1rem;
-            font-size: 0.875rem;
-            border-radius: 8px;
-        }
-
-        /* ============ NAVIGATION ============ */
+        /* ============ NAVBAR ============ */
         .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            position: fixed; top: 3px; width: 100%;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--gray-200);
-            z-index: 1000;
-            padding: 1rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: var(--shadow-sm);
+            z-index: 1000; padding: 0.85rem 1.5rem;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 1px 12px rgba(0,0,0,0.07);
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary);
-            font-family: 'Poppins', sans-serif;
-        }
+        .logo { display: flex; align-items: center; gap: 0.75rem; font-size: 1.2rem; font-weight: 700; color: var(--primary); font-family: 'Poppins', sans-serif; }
+        .logo-img { width: 38px; height: 38px; border-radius: 9px; object-fit: cover; box-shadow: var(--shadow-sm); transition: transform 0.3s; }
+        .logo-img:hover { transform: scale(1.07); }
 
-        .logo-img {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            object-fit: cover;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-        }
-
-        .logo-img:hover {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-md);
-        }
-
-        .nav-menu {
+        .nav-links {
             display: none;
+            list-style: none;
+            gap: 0.25rem;
         }
 
-        /* ============ SECTIONS ============ */
-        section {
-            padding: 4rem 0;
-            position: relative;
+        .nav-links a {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            padding: 0.4rem 0.75rem;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .nav-links a:hover { color: var(--primary); background: var(--primary-light); }
+
+        .nav-cta { display: none; }
+
+        /* Hamburger */
+        .hamburger {
+            display: flex; flex-direction: column; gap: 5px;
+            cursor: pointer; padding: 4px; background: none; border: none;
+        }
+        .hamburger span { display: block; width: 24px; height: 2px; background: var(--gray-700); border-radius: 2px; transition: all 0.3s; }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 65px; left: 0; right: 0;
+            background: #fff;
+            border-bottom: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-xl);
+            z-index: 999;
+            padding: 1rem 1.5rem 1.5rem;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        .mobile-menu.open { display: flex; animation: slideDown 0.25s ease; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .mobile-menu a {
+            font-family: 'Poppins', sans-serif; font-size: 0.95rem; font-weight: 600;
+            color: var(--gray-700); padding: 0.75rem 1rem; border-radius: 10px;
+            transition: all 0.2s;
+        }
+        .mobile-menu a:hover { background: var(--primary-light); color: var(--primary); }
+        .mobile-menu .btn { margin-top: 0.75rem; }
+
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+            .nav-cta { display: inline-flex; }
+            .hamburger { display: none; }
         }
 
         /* ============ HERO ============ */
         .hero {
-            padding-top: 100px;
-            padding-bottom: 2rem;
+            padding-top: 90px; padding-bottom: 3rem;
             background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
-            position: relative;
             overflow: hidden;
         }
 
         .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 82, 204, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: float 6s ease-in-out infinite;
+            content: ''; position: absolute; top: -40%; right: -5%;
+            width: 550px; height: 550px;
+            background: radial-gradient(circle, rgba(0,82,204,0.08) 0%, transparent 70%);
+            border-radius: 50%; pointer-events: none;
+            animation: float 7s ease-in-out infinite;
         }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -20%;
-            left: 5%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255, 149, 0, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: float 8s ease-in-out infinite reverse;
-        }
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-25px); } }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-30px); }
-        }
+        .hero-content { position: relative; z-index: 1; }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        .hero-title { font-size: clamp(2rem,6vw,3.5rem); margin-bottom: 0.4rem; }
+        .hero-subtitle { font-size: 1.4rem; color: var(--accent); font-weight: 700; margin-bottom: 1rem; font-family: 'Poppins', sans-serif; }
+        .hero-description { font-size: 1.05rem; color: var(--gray-600); margin-bottom: 2rem; max-width: 580px; }
+        .hero-buttons { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem; }
 
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        /* Reveal animation via JS */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        .hero-title {
-            font-size: clamp(2rem, 6vw, 3.5rem);
-            line-height: 1.1;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--accent);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .hero-description {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: var(--gray-600);
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
+        .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
 
         .stat-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: var(--shadow-md);
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            animation-fill-mode: both;
+            background: #fff; padding: 1.25rem; border-radius: 12px; text-align: center;
+            box-shadow: var(--shadow-md); border: 2px solid transparent; transition: all 0.3s ease;
         }
-
-        .stat-card:nth-child(1) { animation-delay: 0.1s; }
-        .stat-card:nth-child(2) { animation-delay: 0.2s; }
-        .stat-card:nth-child(3) { animation-delay: 0.3s; }
-
-        .stat-card:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-4px);
-        }
-
+        .stat-card:hover { border-color: var(--primary); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
         .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem; font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            line-height: 1; font-family: 'Poppins', sans-serif;
         }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--gray-600);
-            margin-top: 0.75rem;
-            font-weight: 600;
-        }
+        .stat-label { font-size: 0.8rem; color: var(--gray-600); margin-top: 0.6rem; font-weight: 600; }
 
         /* ============ SECTION HEADERS ============ */
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-title { font-size: clamp(1.5rem,4vw,2.5rem); margin-bottom: 0.75rem; }
+        .section-subtitle { font-size: 1rem; color: var(--gray-600); max-width: 600px; margin: 0 auto; }
+
+        /* Badge accent sous-titres */
+        .section-badge {
+            display: inline-block; background: var(--accent-light); color: var(--accent-dark);
+            font-size: 0.8rem; font-weight: 700; padding: 0.3rem 0.9rem;
+            border-radius: 99px; margin-bottom: 0.75rem; font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.05em;
         }
 
-        .section-title {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            margin-bottom: 0.75rem;
-        }
-
-        .section-subtitle {
-            font-size: 1rem;
-            color: var(--gray-600);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* ============ PROBLEMS SECTION ============ */
-        .problems {
-            background: var(--white);
-        }
-
-        .problems-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
+        /* ============ PROBLEMS ============ */
+        .problems { background: #fff; }
+        .problems-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 1.25rem; }
         .problem-card {
-            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
-            padding: 2rem;
-            border-radius: 14px;
-            box-shadow: var(--shadow-sm);
-            border: 2px solid transparent;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            animation-fill-mode: both;
+            background: var(--gray-50); padding: 1.75rem; border-radius: 14px;
+            box-shadow: var(--shadow-sm); border: 2px solid transparent; transition: all 0.3s ease; cursor: pointer;
         }
+        .problem-card:hover { background: linear-gradient(135deg,var(--primary-light),var(--accent-light)); border-color: var(--primary); box-shadow: var(--shadow-lg); transform: translateY(-6px); }
+        .problem-icon { font-size: 2.25rem; margin-bottom: 0.9rem; display: block; }
+        .problem-card h3 { margin-bottom: 0.4rem; color: var(--primary); }
 
-        .problem-card:nth-child(1) { animation-delay: 0.05s; }
-        .problem-card:nth-child(2) { animation-delay: 0.1s; }
-        .problem-card:nth-child(3) { animation-delay: 0.15s; }
-        .problem-card:nth-child(4) { animation-delay: 0.2s; }
-        .problem-card:nth-child(5) { animation-delay: 0.25s; }
-        .problem-card:nth-child(6) { animation-delay: 0.3s; }
-
-        .problem-card:hover {
-            background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
-            border-color: var(--primary);
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-8px);
-        }
-
-        .problem-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .problem-card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        .problem-card p {
-            font-size: 0.9rem;
-            margin-bottom: 0;
-        }
-
-        /* ============ METHOD SECTION ============ */
-        .method {
-            background: linear-gradient(135deg, var(--primary-light) 0%, var(--gray-100) 100%);
-        }
-
-        .method-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
+        /* ============ METHOD ============ */
+        .method { background: linear-gradient(135deg,var(--primary-light),var(--gray-100)); }
+        .method-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 2rem; }
         .method-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 14px;
-            border-left: 5px solid var(--accent);
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            animation-fill-mode: both;
+            background: #fff; padding: 2rem; border-radius: 14px;
+            border-left: 5px solid var(--accent); box-shadow: var(--shadow-md); transition: all 0.3s ease;
         }
-
-        .method-card:nth-child(1) { animation-delay: 0.1s; }
-        .method-card:nth-child(2) { animation-delay: 0.2s; }
-        .method-card:nth-child(3) { animation-delay: 0.3s; }
-        .method-card:nth-child(4) { animation-delay: 0.4s; }
-
-        .method-card:hover {
-            box-shadow: var(--shadow-xl);
-            transform: translateY(-8px);
-            border-left-color: var(--primary);
-        }
-
+        .method-card:hover { box-shadow: var(--shadow-xl); transform: translateY(-8px); border-left-color: var(--primary); }
         .method-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: var(--white);
-            border-radius: 12px;
-            font-weight: 800;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-family: 'Poppins', sans-serif;
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg,var(--primary),var(--accent));
+            color: #fff; border-radius: 12px; font-weight: 800; font-size: 1.4rem;
+            margin-bottom: 1rem; font-family: 'Poppins', sans-serif;
         }
+        .method-card h3 { color: var(--primary); margin-bottom: 0.6rem; }
+        .method-icon { font-size: 1.8rem; margin-top: 1rem; opacity: 0.5; }
 
-        .method-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-        }
-
-        .method-icon {
-            font-size: 2rem;
-            margin-top: 1rem;
-            opacity: 0.6;
-        }
-
-        /* ============ FEATURES SECTION ============ */
-        .features {
-            background: var(--white);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
+        /* ============ FEATURES ============ */
+        .features { background: #fff; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1.75rem; }
         .feature-card {
-            background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
-            padding: 2rem;
-            border-radius: 14px;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            animation-fill-mode: both;
+            background: linear-gradient(135deg,var(--primary-light),var(--accent-light));
+            padding: 2rem; border-radius: 14px; text-align: center;
+            border: 2px solid transparent; transition: all 0.3s ease;
         }
+        .feature-card:hover { border-color: var(--primary); box-shadow: var(--shadow-lg); transform: translateY(-6px); }
+        .feature-icon { font-size: 2.75rem; margin-bottom: 0.9rem; }
+        .feature-card h3 { color: var(--primary); margin-bottom: 0.4rem; }
 
-        .feature-card:nth-child(1) { animation-delay: 0.05s; }
-        .feature-card:nth-child(2) { animation-delay: 0.1s; }
-        .feature-card:nth-child(3) { animation-delay: 0.15s; }
-        .feature-card:nth-child(4) { animation-delay: 0.2s; }
-        .feature-card:nth-child(5) { animation-delay: 0.25s; }
-        .feature-card:nth-child(6) { animation-delay: 0.3s; }
-
-        .feature-card:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-8px);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        /* ============ OFFERS SECTION ============ */
-        .offers {
-            background: linear-gradient(135deg, var(--gray-100) 0%, var(--primary-light) 100%);
-        }
-
-        .offers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
+        /* ============ OFFERS ============ */
+        .offers { background: linear-gradient(135deg,var(--gray-100),var(--primary-light)); }
+        .offers-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 2rem; }
         .offer-card {
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.3s ease;
-            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            animation-fill-mode: both;
-            position: relative;
+            background: #fff; border-radius: 16px; overflow: hidden;
+            box-shadow: var(--shadow-lg); transition: all 0.3s ease;
         }
-
-        .offer-card:nth-child(1) { animation-delay: 0.1s; }
-        .offer-card:nth-child(2) { animation-delay: 0.2s; }
-        .offer-card:nth-child(3) { animation-delay: 0.3s; }
-
-        .offer-card:hover {
-            box-shadow: var(--shadow-2xl);
-            transform: translateY(-12px);
-        }
-
-        .offer-card.featured {
-            border: 2px solid var(--accent);
-            transform: scale(1.02);
-        }
-
-        .offer-card.featured:hover {
-            transform: scale(1.02) translateY(-12px);
-        }
-
-        .offer-header {
-            padding: 2rem;
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .offer-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
-
-        .offer-header.primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-        }
-
-        .offer-header.accent {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-        }
-
-        .offer-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .offer-header h3 {
-            color: var(--white);
-            font-size: 1.5rem;
-            margin-bottom: 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .offer-body {
-            padding: 2rem;
-        }
-
-        .offer-body p {
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .offer-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .offer-features li {
-            padding: 0.75rem 0;
-            font-size: 0.9rem;
-            color: var(--gray-600);
-            position: relative;
-            padding-left: 28px;
-            display: flex;
-            align-items: center;
-        }
-
-        .offer-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: 900;
-            font-size: 1.25rem;
-        }
-
-        .offer-cta {
-            width: 100%;
-            margin-top: 0;
-        }
+        .offer-card:hover { box-shadow: var(--shadow-2xl); transform: translateY(-10px); }
+        .offer-card.featured { border: 2px solid var(--accent); }
+        .offer-header { padding: 2rem; color: #fff; position: relative; overflow: hidden; }
+        .offer-header::before { content: ''; position: absolute; top: -50%; right: -50%; width: 280px; height: 280px; background: rgba(255,255,255,0.1); border-radius: 50%; }
+        .offer-header.primary { background: linear-gradient(135deg,var(--primary),var(--primary-dark)); }
+        .offer-header.accent  { background: linear-gradient(135deg,var(--accent),var(--accent-dark)); }
+        .offer-icon { font-size: 2.75rem; margin-bottom: 0.75rem; position: relative; z-index: 1; }
+        .offer-header h3 { color: #fff; font-size: 1.4rem; position: relative; z-index: 1; }
+        .offer-body { padding: 2rem; }
+        .offer-features { list-style: none; margin-bottom: 1.75rem; }
+        .offer-features li { padding: 0.6rem 0; font-size: 0.9rem; color: var(--gray-600); padding-left: 28px; position: relative; }
+        .offer-features li::before { content: '✓'; position: absolute; left: 0; color: var(--success); font-weight: 900; font-size: 1.1rem; }
 
         /* ============ TESTIMONIALS ============ */
-        .testimonials {
-            background: var(--white);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
+        .testimonials { background: #fff; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 1.75rem; }
         .testimonial-card {
-            background: linear-gradient(135deg, var(--gray-50) 0%, var(--primary-light) 100%);
-            padding: 2rem;
-            border-radius: 14px;
-            box-shadow: var(--shadow-sm);
-            border-left: 4px solid var(--accent);
-            transition: all 0.3s ease;
-            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            animation-fill-mode: both;
+            background: linear-gradient(135deg,var(--gray-50),var(--primary-light));
+            padding: 2rem; border-radius: 14px; border-left: 4px solid var(--accent); transition: all 0.3s ease;
         }
+        .testimonial-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-6px); }
+        .testimonial-stars { color: #FFB81C; font-size: 1rem; margin-bottom: 0.9rem; letter-spacing: 2px; }
+        .testimonial-text { font-size: 0.93rem; font-style: italic; color: var(--gray-700); margin-bottom: 1rem; line-height: 1.7; }
+        .testimonial-author { font-weight: 700; color: var(--gray-900); font-size: 0.93rem; }
+        .testimonial-role { font-size: 0.82rem; color: var(--gray-500); }
 
-        .testimonial-card:nth-child(1) { animation-delay: 0.05s; }
-        .testimonial-card:nth-child(2) { animation-delay: 0.1s; }
-        .testimonial-card:nth-child(3) { animation-delay: 0.15s; }
-        .testimonial-card:nth-child(4) { animation-delay: 0.2s; }
+        /* ============ ABOUT ============ */
+        .about { background: linear-gradient(135deg,var(--accent-light),var(--primary-light)); }
+        .about-content { display: grid; gap: 3rem; align-items: center; }
+        .about-text h3 { color: var(--primary); margin-bottom: 0.9rem; }
+        .about-list { list-style: none; margin-top: 1.25rem; }
+        .about-list li { padding: 0.65rem 0; display: flex; align-items: center; gap: 0.9rem; font-size: 0.93rem; }
+        .about-list li::before { content: '→'; color: var(--accent); font-weight: 800; font-size: 1.1rem; flex-shrink: 0; }
+        .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+        .about-stat { background: #fff; padding: 1.5rem; border-radius: 12px; text-align: center; box-shadow: var(--shadow-sm); }
+        .about-stat-number { font-size: 2.2rem; font-weight: 800; color: var(--accent); line-height: 1; font-family: 'Poppins', sans-serif; }
+        .about-stat-label { font-size: 0.82rem; color: var(--gray-600); margin-top: 0.4rem; font-weight: 600; }
 
-        .testimonial-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-8px);
-        }
-
-        .testimonial-stars {
-            color: #FFB81C;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-
-        .testimonial-text {
-            font-size: 0.95rem;
-            font-style: italic;
-            color: var(--gray-700);
-            margin-bottom: 1rem;
-            line-height: 1.7;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--gray-900);
-            font-size: 0.95rem;
-        }
-
-        .testimonial-role {
-            font-size: 0.85rem;
-            color: var(--gray-600);
-        }
-
-        /* ============ ABOUT SECTION ============ */
-        .about {
-            background: linear-gradient(135deg, var(--accent-light) 0%, var(--primary-light) 100%);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .about-list {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-
-        .about-list li {
-            padding: 0.75rem 0;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .about-list li::before {
-            content: '→';
-            color: var(--accent);
-            font-weight: 800;
-            font-size: 1.25rem;
-            flex-shrink: 0;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .about-stat {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .about-stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--accent);
-            line-height: 1;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .about-stat-label {
-            font-size: 0.85rem;
-            color: var(--gray-600);
-            margin-top: 0.5rem;
-            font-weight: 600;
-        }
-
-        /* ============ FAQ SECTION ============ */
-        .faq {
-            background: var(--white);
-        }
-
-        .faq-list {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: linear-gradient(135deg, var(--gray-50) 0%, var(--primary-light) 100%);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            animation-fill-mode: both;
-        }
-
-        .faq-item:nth-child(1) { animation-delay: 0.05s; }
-        .faq-item:nth-child(2) { animation-delay: 0.1s; }
-        .faq-item:nth-child(3) { animation-delay: 0.15s; }
-        .faq-item:nth-child(4) { animation-delay: 0.2s; }
-        .faq-item:nth-child(5) { animation-delay: 0.25s; }
-
-        .faq-item:hover {
-            box-shadow: var(--shadow-md);
-        }
-
-        .faq-item.active {
-            box-shadow: var(--shadow-lg);
-        }
-
+        /* ============ FAQ ============ */
+        .faq { background: #fff; }
+        .faq-list { display: grid; gap: 0.9rem; max-width: 780px; margin: 0 auto; }
+        .faq-item { background: var(--gray-50); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); transition: all 0.3s ease; }
+        .faq-item:hover { box-shadow: var(--shadow-md); }
+        .faq-item.active { box-shadow: var(--shadow-lg); background: linear-gradient(135deg,var(--gray-50),var(--primary-light)); }
         .faq-question {
-            width: 100%;
-            padding: 1.5rem;
-            background: transparent;
-            border: none;
-            text-align: left;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--primary);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-            -webkit-user-select: none;
-            user-select: none;
+            width: 100%; padding: 1.4rem 1.5rem; background: transparent; border: none;
+            text-align: left; font-size: 0.93rem; font-weight: 600; color: var(--primary);
+            cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
             font-family: 'Poppins', sans-serif;
         }
+        .faq-toggle { font-size: 1.4rem; transition: transform 0.3s; color: var(--accent); flex-shrink: 0; }
+        .faq-item.active .faq-toggle { transform: rotate(45deg); }
+        .faq-answer { display: none; padding: 0 1.5rem 1.4rem; font-size: 0.9rem; color: var(--gray-600); line-height: 1.7; }
+        .faq-item.active .faq-answer { display: block; animation: slideDown 0.3s ease; }
 
-        .faq-toggle {
-            flex-shrink: 0;
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            display: none;
-            padding: 0 1.5rem 1.5rem;
-            font-size: 0.9rem;
-            color: var(--gray-600);
-            line-height: 1.7;
-        }
-
-        .faq-item.active .faq-answer {
-            display: block;
-            animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ============ CTA SECTION ============ */
+        /* ============ CTA ============ */
         .cta {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--white);
-            padding: 4rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(135deg,var(--primary),var(--primary-dark));
+            color: #fff; padding: 4rem 0; text-align: center; overflow: hidden;
         }
+        .cta::before { content: ''; position: absolute; top: -50%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle,rgba(255,149,0,0.12) 0%,transparent 70%); border-radius: 50%; pointer-events: none; }
+        .cta-content { position: relative; z-index: 1; }
+        .cta h2 { color: #fff; margin-bottom: 1rem; }
+        .cta p  { color: rgba(255,255,255,0.9); margin-bottom: 2rem; font-size: 1.05rem; }
 
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 149, 0, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
+        /* ============ FORM ============ */
+        .form-section { background: #fff; padding-bottom: 4rem; }
+        .form-container { max-width: 600px; margin: 0 auto; }
+        .form-group { margin-bottom: 1.4rem; }
+        .form-label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--gray-800); margin-bottom: 0.45rem; font-family: 'Poppins', sans-serif; }
+        .form-input, .form-select, .form-textarea {
+            width: 100%; padding: 0.875rem; font-size: 1rem;
+            border: 2px solid var(--gray-200); border-radius: 10px; font-family: inherit;
+            transition: all 0.3s ease; background: var(--gray-50); -webkit-appearance: none;
         }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none; border-color: var(--primary); background: #fff;
+            box-shadow: 0 0 0 4px rgba(0,82,204,0.1);
         }
-
-        .cta h2 {
-            color: var(--white);
-            margin-bottom: 1rem;
-        }
-
-        .cta p {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
-        }
-
-        /* ============ FORM SECTION ============ */
-        .form-section {
-            background: var(--white);
-            padding-bottom: 4rem;
-        }
-
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--gray-800);
-            margin-bottom: 0.5rem;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .form-input,
-        .form-select,
-        .form-textarea {
-            width: 100%;
-            padding: 0.875rem;
-            font-size: 1rem;
-            border: 2px solid var(--gray-300);
-            border-radius: 10px;
-            font-family: inherit;
-            transition: all 0.3s ease;
-            -webkit-appearance: none;
-            appearance: none;
-        }
-
-        .form-input:focus,
-        .form-select:focus,
-        .form-textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(0, 82, 204, 0.1);
-            background-color: rgba(0, 82, 204, 0.02);
-        }
-
-        .form-textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-select {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%230052CC' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            padding-right: 36px;
-        }
-
-        .form-radio-group {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-        }
-
-        .form-radio-label {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            cursor: pointer;
-            padding: 0.75rem;
-            border-radius: 10px;
-            transition: all 0.2s ease;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-
-        .form-radio-label:hover {
-            background: var(--gray-100);
-        }
-
-        .form-radio-label input[type="radio"] {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-            accent-color: var(--primary);
-        }
-
-        .form-checkbox-label {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            cursor: pointer;
-            font-size: 0.9rem;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-
-        .form-checkbox-label input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            margin-top: 2px;
-            cursor: pointer;
-            accent-color: var(--primary);
-            flex-shrink: 0;
-        }
-
-        .form-note {
-            font-size: 0.85rem;
-            color: var(--gray-600);
-            text-align: center;
-            margin-top: 1rem;
-            line-height: 1.6;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-top: 2rem;
-        }
+        .form-textarea { resize: vertical; min-height: 100px; }
+        .form-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%230052CC' d='M6 9L1 4h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px; }
+        .form-radio-group { display: grid; gap: 0.75rem; }
+        .form-radio-label { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.65rem; border-radius: 8px; transition: background 0.2s; }
+        .form-radio-label:hover { background: var(--gray-100); }
+        .form-radio-label input[type="radio"] { width: 18px; height: 18px; accent-color: var(--primary); }
+        .form-checkbox-label { display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer; font-size: 0.88rem; }
+        .form-checkbox-label input[type="checkbox"] { width: 17px; height: 17px; margin-top: 2px; accent-color: var(--primary); flex-shrink: 0; }
+        .form-note { font-size: 0.83rem; color: var(--gray-500); text-align: center; margin-top: 1rem; }
+        .form-submit { width: 100%; padding: 1rem; font-size: 1.05rem; font-weight: 700; margin-top: 1.75rem; }
 
         /* ============ FOOTER ============ */
-        .footer {
-            background: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-900) 100%);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-        }
+        .footer { background: linear-gradient(135deg,var(--gray-800),var(--gray-900)); color: #fff; padding: 3rem 0 1rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-section h4 { font-size: 1.05rem; margin-bottom: 0.9rem; color: #fff; font-family: 'Poppins', sans-serif; }
+        .footer-section p { color: rgba(255,255,255,0.65); margin-bottom: 0.65rem; font-size: 0.88rem; }
+        .footer-section ul { list-style: none; }
+        .footer-section ul li { margin-bottom: 0.45rem; }
+        .footer-section a { color: rgba(255,255,255,0.65); }
+        .footer-section a:hover { color: var(--accent); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem; text-align: center; font-size: 0.83rem; color: rgba(255,255,255,0.5); }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: var(--white);
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .footer-section p {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 0.75rem;
-            font-size: 0.9rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.7);
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: var(--accent);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 1.5rem;
-            text-align: center;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* ============ WHATSAPP BUTTON ============ */
+        /* ============ WHATSAPP BTN ============ */
         .whatsapp-btn {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #25D366 0%, #1FA854 100%);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: var(--shadow-xl);
-            z-index: 999;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            position: fixed; bottom: 24px; right: 24px;
+            width: 58px; height: 58px;
+            background: linear-gradient(135deg,#25D366,#1FA854);
+            color: #fff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.9rem; box-shadow: var(--shadow-xl); z-index: 997;
+            text-decoration: none; transition: all 0.3s ease;
         }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-            box-shadow: var(--shadow-2xl);
-        }
-
-        .whatsapp-btn:active {
-            transform: scale(0.95);
-        }
+        .whatsapp-btn:hover { transform: scale(1.1); box-shadow: var(--shadow-2xl); }
 
         /* ============ MODAL ============ */
         .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 2000;
-            align-items: flex-end;
-            padding: 1rem;
-            -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,0.55); z-index: 2000;
+            align-items: flex-end; padding: 1rem;
+            backdrop-filter: blur(4px);
         }
-
-        .modal.active {
-            display: flex;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
+        .modal.active { display: flex; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         .modal-content {
-            background: var(--white);
-            width: 100%;
-            max-width: 500px;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-2xl);
-            animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #fff; width: 100%; max-width: 480px;
+            padding: 2rem; border-radius: 20px; box-shadow: var(--shadow-2xl);
+            animation: slideUp 0.3s cubic-bezier(0.4,0,0.2,1);
         }
-
-        .modal-header {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: celebrate 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        @keyframes celebrate {
-            0% { transform: scale(0) rotate(-180deg); }
-            100% { transform: scale(1) rotate(0); }
-        }
-
-        .modal-header h2 {
-            margin: 0;
-        }
-
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .modal-header { text-align: center; margin-bottom: 1.25rem; }
+        .modal-icon { font-size: 3.5rem; margin-bottom: 0.75rem; animation: celebrate 0.6s cubic-bezier(0.34,1.56,0.64,1); display: block; }
+        @keyframes celebrate { from { transform: scale(0) rotate(-180deg); } to { transform: scale(1) rotate(0); } }
+        .modal-header h2 { margin: 0; font-size: 1.6rem; }
         .modal-close {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--white);
-            border: none;
-            padding: 1rem;
-            border-radius: 10px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 1.5rem;
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg,var(--primary),var(--primary-dark));
+            color: #fff; border: none; padding: 0.9rem; border-radius: 10px;
+            font-size: 0.93rem; font-weight: 700; cursor: pointer; width: 100%;
+            margin-top: 1.25rem; transition: all 0.3s; font-family: 'Poppins', sans-serif;
         }
-
-        .modal-close:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
+        .modal-close:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 
         /* ============ RESPONSIVE ============ */
         @media (min-width: 640px) {
-            .container {
-                padding: 0 2rem;
-            }
-
-            .hero-buttons {
-                flex-direction: row;
-            }
-
-            .hero-buttons .btn {
-                flex: 1;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .method-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .container { padding: 0 2rem; }
+            .hero-buttons { flex-direction: row; }
+            .hero-buttons .btn { flex: 1; }
         }
-
+        @media (min-width: 768px) {
+            .about-content { grid-template-columns: 1fr 1fr; }
+        }
         @media (min-width: 1024px) {
-            .method-grid,
-            .offers-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .problems-grid,
-            .features-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .about-content {
-                grid-template-columns: 1fr 1fr;
-            }
+            .method-grid, .offers-grid { grid-template-columns: repeat(3,1fr); }
+            .problems-grid, .features-grid { grid-template-columns: repeat(3,1fr); }
+            .testimonials-grid { grid-template-columns: repeat(2,1fr); }
         }
 
-        @media print {
-            .navbar,
-            .whatsapp-btn,
-            .hero-buttons,
-            .form-section {
-                display: none;
-            }
-        }
+        @media print { .navbar, .whatsapp-btn, .hero-buttons, .form-section { display: none; } }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="https://raw.githubusercontent.com/mohaooa19-emp/pr-cepteur-/main/image/logo.jpg" alt="Précepteur Logo" class="logo-img">
-            <span>Précepteur</span>
+
+    <!-- =========== SCROLL PROGRESS =========== -->
+    <div id="scroll-progress"></div>
+
+    <!-- =========== SPLASH SCREEN =========== -->
+    <div id="splash">
+        <div class="splash-image-wrap">
+            <img src="besoin.jpg" alt="Précepteur — Soutien scolaire" onerror="this.style.display='none'; document.querySelector('.splash-overlay-bar').style.position='static'; document.querySelector('.splash-overlay-bar').style.background='none';">
+            <div class="splash-overlay-bar">
+                <img src="https://raw.githubusercontent.com/mohaooa19-emp/pr-cepteur-/main/image/logo.jpg"
+                     alt="Logo" class="splash-logo-mini"
+                     onerror="this.style.display='none'">
+                <div class="splash-tagline">
+                    <strong>Précepteur</strong><br>
+                    <span>Plus qu'un répétiteur</span> — Un accompagnement qui révèle le potentiel.
+                </div>
+            </div>
         </div>
+        <div class="splash-loader">
+            <div class="splash-loader-bar">
+                <div class="splash-loader-fill"></div>
+            </div>
+            <button class="splash-skip" onclick="closeSplash()">Passer →</button>
+        </div>
+    </div>
+
+    <!-- =========== NAVBAR =========== -->
+    <nav class="navbar">
+        <a href="#hero" class="logo">
+            <img src="https://raw.githubusercontent.com/mohaooa19-emp/pr-cepteur-/main/image/logo.jpg" alt="Logo" class="logo-img" onerror="this.style.display='none'">
+            <span>Précepteur</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#method">Notre Méthode</a></li>
+            <li><a href="#offers">Nos Offres</a></li>
+            <li><a href="#testimonials">Témoignages</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+
+        <a href="#booking" class="btn btn-primary btn-sm nav-cta">Diagnostic Gratuit</a>
+
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#method"       onclick="toggleMenu()">Notre Méthode</a>
+        <a href="#offers"       onclick="toggleMenu()">Nos Offres</a>
+        <a href="#testimonials" onclick="toggleMenu()">Témoignages</a>
+        <a href="#faq"          onclick="toggleMenu()">FAQ</a>
+        <a href="#booking" class="btn btn-primary" onclick="toggleMenu()">Diagnostic Gratuit</a>
+    </div>
+
+    <!-- =========== HERO =========== -->
+    <section class="hero" id="hero">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content reveal">
                 <h1 class="hero-title">Précepteur Premium</h1>
                 <p class="hero-subtitle">Plus qu'un répétiteur</p>
                 <p class="hero-description">Un suivi scolaire structuré avec diagnostic gratuit, accompagnement personnalisé et mesure de la progression. Résultats garantis ou remboursé.</p>
-                
                 <div class="hero-buttons">
                     <a href="#booking" class="btn btn-primary btn-lg btn-block">Réserver Diagnostic Gratuit</a>
-                    <a href="#method" class="btn btn-secondary btn-lg btn-block">Découvrir la Méthode</a>
+                    <a href="#method"  class="btn btn-secondary btn-lg btn-block">Découvrir la Méthode</a>
                 </div>
-
                 <div class="hero-stats">
-                    <div class="stat-card">
-                        <div class="stat-number">25+</div>
-                        <div class="stat-label">Enfants Aidés</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Satisfaction</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">3+</div>
-                        <div class="stat-label">Ans d'Excellence</div>
-                    </div>
+                    <div class="stat-card reveal"><div class="stat-number">25+</div><div class="stat-label">Enfants Aidés</div></div>
+                    <div class="stat-card reveal"><div class="stat-number">98%</div><div class="stat-label">Satisfaction</div></div>
+                    <div class="stat-card reveal"><div class="stat-number">3+</div><div class="stat-label">Ans d'Excellence</div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problems Section -->
+    <!-- =========== PROBLEMS =========== -->
     <section class="problems">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
+                <span class="section-badge">DÉFIS COURANTS</span>
                 <h2 class="section-title">Votre Enfant Mérite Mieux</h2>
-                <p class="section-subtitle">Vous reconnaissez ces défis ?</p>
+                <p class="section-subtitle">Vous reconnaissez ces situations ?</p>
             </div>
-            
             <div class="problems-grid">
-                <div class="problem-card">
-                    <span class="problem-icon">😕</span>
-                    <h3>Manque de Motivation</h3>
-                    <p>Votre enfant perd intérêt pour les études et les devoirs.</p>
-                </div>
-                <div class="problem-card">
-                    <span class="problem-icon">📉</span>
-                    <h3>Notes en Baisse</h3>
-                    <p>Les résultats ne s'améliorent pas malgré vos efforts.</p>
-                </div>
-                <div class="problem-card">
-                    <span class="problem-icon">😰</span>
-                    <h3>Stress Scolaire</h3>
-                    <p>Votre enfant craint les contrôles et examens.</p>
-                </div>
-                <div class="problem-card">
-                    <span class="problem-icon">🤔</span>
-                    <h3>Lacunes Cumulées</h3>
-                    <p>Les bases n'ont pas été bien assimilées.</p>
-                </div>
-                <div class="problem-card">
-                    <span class="problem-icon">⏰</span>
-                    <h3>Manque de Temps</h3>
-                    <p>Vous travaillez et ne pouvez pas aider suffisamment.</p>
-                </div>
-                <div class="problem-card">
-                    <span class="problem-icon">❓</span>
-                    <h3>Approche Inadéquate</h3>
-                    <p>Les méthodes générales ne conviennent pas à son style.</p>
-                </div>
+                <div class="problem-card reveal"><span class="problem-icon">😕</span><h3>Manque de Motivation</h3><p>Votre enfant perd intérêt pour les études et les devoirs.</p></div>
+                <div class="problem-card reveal"><span class="problem-icon">📉</span><h3>Notes en Baisse</h3><p>Les résultats ne s'améliorent pas malgré vos efforts.</p></div>
+                <div class="problem-card reveal"><span class="problem-icon">😰</span><h3>Stress Scolaire</h3><p>Votre enfant craint les contrôles et examens.</p></div>
+                <div class="problem-card reveal"><span class="problem-icon">🤔</span><h3>Lacunes Cumulées</h3><p>Les bases n'ont pas été bien assimilées.</p></div>
+                <div class="problem-card reveal"><span class="problem-icon">⏰</span><h3>Manque de Temps</h3><p>Vous travaillez et ne pouvez pas aider suffisamment.</p></div>
+                <div class="problem-card reveal"><span class="problem-icon">❓</span><h3>Approche Inadéquate</h3><p>Les méthodes générales ne conviennent pas à son style.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Method Section -->
+    <!-- =========== METHOD =========== -->
     <section class="method" id="method">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
+                <span class="section-badge">NOTRE APPROCHE</span>
                 <h2 class="section-title">La Méthode Précepteur</h2>
                 <p class="section-subtitle">Un suivi structuré et entièrement personnalisé</p>
             </div>
-            
             <div class="method-grid">
-                <div class="method-card">
-                    <div class="method-number">1</div>
-                    <h3>Diagnostic Approfondi</h3>
-                    <p>Analyse complète des forces, faiblesses et style d'apprentissage. Rapport détaillé gratuit.</p>
-                    <div class="method-icon">🔍</div>
-                </div>
-                <div class="method-card">
-                    <div class="method-number">2</div>
-                    <h3>Plan Sur Mesure</h3>
-                    <p>Programme créé spécifiquement pour votre enfant, ajusté à son niveau et rythme.</p>
-                    <div class="method-icon">📋</div>
-                </div>
-                <div class="method-card">
-                    <div class="method-number">3</div>
-                    <h3>Enseignement Adaptatif</h3>
-                    <p>Pédagogie moderne et interactive qui s'ajuste en temps réel à la progression.</p>
-                    <div class="method-icon">🎯</div>
-                </div>
-                <div class="method-card">
-                    <div class="method-number">4</div>
-                    <h3>Suivi en Continu</h3>
-                    <p>Rapports hebdomadaires, app de suivi et ajustements stratégiques constants.</p>
-                    <div class="method-icon">📊</div>
-                </div>
+                <div class="method-card reveal"><div class="method-number">1</div><h3>Diagnostic Approfondi</h3><p>Analyse complète des forces, faiblesses et style d'apprentissage. Rapport détaillé gratuit.</p><div class="method-icon">🔍</div></div>
+                <div class="method-card reveal"><div class="method-number">2</div><h3>Plan Sur Mesure</h3><p>Programme créé spécifiquement pour votre enfant, ajusté à son niveau et rythme.</p><div class="method-icon">📋</div></div>
+                <div class="method-card reveal"><div class="method-number">3</div><h3>Enseignement Adaptatif</h3><p>Pédagogie moderne et interactive qui s'ajuste en temps réel à la progression.</p><div class="method-icon">🎯</div></div>
+                <div class="method-card reveal"><div class="method-number">4</div><h3>Suivi en Continu</h3><p>Rapports hebdomadaires, app de suivi et ajustements stratégiques constants.</p><div class="method-icon">📊</div></div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- =========== FEATURES =========== -->
     <section class="features">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
+                <span class="section-badge">NOS AVANTAGES</span>
                 <h2 class="section-title">Pourquoi Précepteur ?</h2>
                 <p class="section-subtitle">Ce qui nous différencie vraiment</p>
             </div>
-            
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">👨‍🎓</div>
-                    <h3>Précepteurs Qualifiés</h3>
-                    <p>Diplômés et en formation continue. Sélection rigoureuse.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Approche Holistique</h3>
-                    <p>Au-delà des résultats : confiance et amour de l'apprentissage.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏠</div>
-                    <h3>À Domicile</h3>
-                    <p>Confort de la maison et flexibilité totale pour votre famille.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Suivi Digital</h3>
-                    <p>Plateforme de suivi en temps réel et communication facile.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💚</div>
-                    <h3>Environnement Bienveillant</h3>
-                    <p>Sans jugement. Encouragement constant et respect total.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Tarifs Justes</h3>
-                    <p>Qualité premium, prix équitables et flexibles.</p>
-                </div>
+                <div class="feature-card reveal"><div class="feature-icon">👨‍🎓</div><h3>Précepteurs Qualifiés</h3><p>Diplômés et en formation continue. Sélection rigoureuse.</p></div>
+                <div class="feature-card reveal"><div class="feature-icon">🎨</div><h3>Approche Holistique</h3><p>Au-delà des résultats : confiance et amour de l'apprentissage.</p></div>
+                <div class="feature-card reveal"><div class="feature-icon">🏠</div><h3>À Domicile</h3><p>Confort de la maison et flexibilité totale pour votre famille.</p></div>
+                <div class="feature-card reveal"><div class="feature-icon">📱</div><h3>Suivi Digital</h3><p>Plateforme de suivi en temps réel et communication facile.</p></div>
+                <div class="feature-card reveal"><div class="feature-icon">💚</div><h3>Environnement Bienveillant</h3><p>Sans jugement. Encouragement constant et respect total.</p></div>
+                <div class="feature-card reveal"><div class="feature-icon">💰</div><h3>Tarifs Justes</h3><p>Qualité premium, prix équitables et flexibles.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Offers Section -->
-    <section class="offers">
+    <!-- =========== OFFERS =========== -->
+    <section class="offers" id="offers">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
+                <span class="section-badge">NOS FORMULES</span>
                 <h2 class="section-title">Nos Offres Spécialisées</h2>
                 <p class="section-subtitle">Solutions adaptées à chaque besoin</p>
             </div>
-            
             <div class="offers-grid">
-                <div class="offer-card">
+                <div class="offer-card reveal">
                     <div class="offer-header primary">
                         <div class="offer-icon">📚</div>
                         <h3>Soutien Général</h3>
@@ -1473,11 +725,10 @@
                             <li>Aide aux devoirs</li>
                             <li>Suivi mensuel</li>
                         </ul>
-                        <a href="#booking" class="btn btn-primary btn-block offer-cta">Choisir cette offre</a>
+                        <a href="#booking" class="btn btn-primary btn-block">Choisir cette offre</a>
                     </div>
                 </div>
-
-                <div class="offer-card featured">
+                <div class="offer-card featured reveal">
                     <div class="offer-header accent">
                         <div class="offer-icon">🎯</div>
                         <h3>Spécialisation Intensive</h3>
@@ -1491,11 +742,10 @@
                             <li>Matériel spécialisé</li>
                             <li>Suivi bi-hebdomadaire</li>
                         </ul>
-                        <a href="#booking" class="btn btn-accent btn-block offer-cta">Choisir cette offre</a>
+                        <a href="#booking" class="btn btn-accent btn-block">Choisir cette offre</a>
                     </div>
                 </div>
-
-                <div class="offer-card">
+                <div class="offer-card reveal">
                     <div class="offer-header primary">
                         <div class="offer-icon">🏆</div>
                         <h3>Préparation Examen</h3>
@@ -1503,31 +753,30 @@
                     <div class="offer-body">
                         <p>Révisions intensives pour les examens importants.</p>
                         <ul class="offer-features">
-                            <li>Brevet/Baccalauréat</li>
+                            <li>Brevet / Baccalauréat</li>
                             <li>Concours d'entrée</li>
                             <li>Plans de révision</li>
                             <li>Simulations d'examen</li>
                             <li>Stratégies d'examen</li>
                         </ul>
-                        <a href="#booking" class="btn btn-primary btn-block offer-cta">Choisir cette offre</a>
+                        <a href="#booking" class="btn btn-primary btn-block">Choisir cette offre</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- =========== ABOUT =========== -->
     <section class="about">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <h2 class="section-title">À Propos de Précepteur</h2>
             </div>
-            
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text reveal">
                     <h3>Notre Mission</h3>
                     <p>Transformer l'éducation scolaire en Guinée en mettant en place un suivi véritablement personnalisé, adapté à chaque enfant.</p>
-                    <p>Nous croyons que chaque enfant a le potentiel de réussir. Le rôle d'un précepteur n'est pas seulement d'enseigner, mais d'inspirer, de motiver et d'accompagner.</p>
+                    <p style="margin-top:0.9rem;">Nous croyons que chaque enfant a le potentiel de réussir. Le rôle d'un précepteur n'est pas seulement d'enseigner, mais d'inspirer, de motiver et d'accompagner.</p>
                     <ul class="about-list">
                         <li>Diagnostic gratuit et sans engagement</li>
                         <li>Garantie de satisfaction ou remboursé</li>
@@ -1536,130 +785,69 @@
                         <li>Résultats mesurables en 2-3 mois</li>
                     </ul>
                 </div>
-                <div class="about-stats">
-                    <div class="about-stat">
-                        <div class="about-stat-number">25+</div>
-                        <div class="about-stat-label">Enfants Accompagnés</div>
-                    </div>
-                    <div class="about-stat">
-                        <div class="about-stat-number">98%</div>
-                        <div class="about-stat-label">Parents Satisfaits</div>
-                    </div>
-                    <div class="about-stat">
-                        <div class="about-stat-number">8</div>
-                        <div class="about-stat-label">Précepteurs Qualifiés</div>
-                    </div>
-                    <div class="about-stat">
-                        <div class="about-stat-number">3+</div>
-                        <div class="about-stat-label">Ans d'Expérience</div>
-                    </div>
+                <div class="about-stats reveal">
+                    <div class="about-stat"><div class="about-stat-number">25+</div><div class="about-stat-label">Enfants Accompagnés</div></div>
+                    <div class="about-stat"><div class="about-stat-number">98%</div><div class="about-stat-label">Parents Satisfaits</div></div>
+                    <div class="about-stat"><div class="about-stat-number">8</div><div class="about-stat-label">Précepteurs Qualifiés</div></div>
+                    <div class="about-stat"><div class="about-stat-number">3+</div><div class="about-stat-label">Ans d'Expérience</div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
+    <!-- =========== TESTIMONIALS =========== -->
+    <section class="testimonials" id="testimonials">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
+                <span class="section-badge">TÉMOIGNAGES</span>
                 <h2 class="section-title">Ce Qu'en Disent les Parents</h2>
                 <p class="section-subtitle">Leurs expériences avec Précepteur</p>
             </div>
-            
             <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"L'approche est vraiment personnalisée. Mon enfant a gagné en confiance et ses notes ont augmenté en seulement 2 mois. Je recommande vivement !"</p>
-                    <div class="testimonial-author">Awa B.</div>
-                    <div class="testimonial-role">Parent à Conakry</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Enfin un précepteur qui écoute vraiment et qui adapte sa méthode. Le suivi est excellent et nous voyons des progrès concrets."</p>
-                    <div class="testimonial-author">Mohamed K.</div>
-                    <div class="testimonial-role">Parent à Conakry</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Le diagnostic gratuit a vraiment identifié les vraies lacunes. La prise en charge a été efficace et rapide. Très professionnels !"</p>
-                    <div class="testimonial-author">Fatima D.</div>
-                    <div class="testimonial-role">Parent à Conakry</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Mon fils détestait étudier. Maintenant il demande quand c'est la prochaine séance ! Un vrai changement d'attitude."</p>
-                    <div class="testimonial-author">Aïssatou M.</div>
-                    <div class="testimonial-role">Parent à Conakry</div>
-                </div>
+                <div class="testimonial-card reveal"><div class="testimonial-stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"L'approche est vraiment personnalisée. Mon enfant a gagné en confiance et ses notes ont augmenté en seulement 2 mois. Je recommande vivement !"</p><div class="testimonial-author">Awa B.</div><div class="testimonial-role">Parent à Conakry</div></div>
+                <div class="testimonial-card reveal"><div class="testimonial-stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Enfin un précepteur qui écoute vraiment et qui adapte sa méthode. Le suivi est excellent et nous voyons des progrès concrets."</p><div class="testimonial-author">Mohamed K.</div><div class="testimonial-role">Parent à Conakry</div></div>
+                <div class="testimonial-card reveal"><div class="testimonial-stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Le diagnostic gratuit a vraiment identifié les vraies lacunes. La prise en charge a été efficace et rapide. Très professionnels !"</p><div class="testimonial-author">Fatima D.</div><div class="testimonial-role">Parent à Conakry</div></div>
+                <div class="testimonial-card reveal"><div class="testimonial-stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Mon fils détestait étudier. Maintenant il demande quand c'est la prochaine séance ! Un vrai changement d'attitude."</p><div class="testimonial-author">Aïssatou M.</div><div class="testimonial-role">Parent à Conakry</div></div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq">
+    <!-- =========== FAQ =========== -->
+    <section class="faq" id="faq">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
+                <span class="section-badge">VOS QUESTIONS</span>
                 <h2 class="section-title">Questions Fréquentes</h2>
             </div>
-            
             <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Quel est le coût d'une séance ?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        Les tarifs varient selon le niveau et la matière (entre 15 000 et 30 000 FG la séance). Une séance dure 60 minutes. Nous proposons des forfaits mensuels avec réductions attractives (10-15%). Des tarifs spéciaux existent pour les familles multi-enfants. Contactez-nous pour un devis personnalisé sans engagement.
-                    </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question"><span>Quel est le coût d'une séance ?</span><span class="faq-toggle">+</span></button>
+                    <div class="faq-answer">Les tarifs varient selon le niveau et la matière (entre 15 000 et 30 000 FG la séance). Une séance dure 60 minutes. Nous proposons des forfaits mensuels avec réductions attractives (10-15%). Des tarifs spéciaux existent pour les familles multi-enfants. Contactez-nous pour un devis personnalisé sans engagement.</div>
                 </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Le diagnostic est vraiment gratuit ?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        Oui, 100% gratuit et sans engagement. Le diagnostic inclut une session de 90 minutes, une analyse complète, un rapport personnalisé avec recommandations détaillées, et un plan d'action proposé. Vous avez une semaine pour décider sans aucune pression.
-                    </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question"><span>Le diagnostic est vraiment gratuit ?</span><span class="faq-toggle">+</span></button>
+                    <div class="faq-answer">Oui, 100% gratuit et sans engagement. Le diagnostic inclut une session de 90 minutes, une analyse complète, un rapport personnalisé avec recommandations détaillées, et un plan d'action proposé. Vous avez une semaine pour décider sans aucune pression.</div>
                 </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Comment se passe le suivi ?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        Suivi via notre plateforme digital avec accès parent en temps réel, rapports mensuels détaillés, réunions trimestrielles, et ajustements constants du plan. Vous recevez des mises à jour après chaque séance par WhatsApp.
-                    </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question"><span>Comment se passe le suivi ?</span><span class="faq-toggle">+</span></button>
+                    <div class="faq-answer">Suivi via notre plateforme digitale avec accès parent en temps réel, rapports mensuels détaillés, réunions trimestrielles, et ajustements constants du plan. Vous recevez des mises à jour après chaque séance par WhatsApp.</div>
                 </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Y a-t-il une garantie ?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        Oui ! Satisfait ou remboursé pendant 30 jours. Si vous ne voyez pas d'amélioration ou si le précepteur ne convient pas, changement gratuit ou remboursement complet. Aucune question posée.
-                    </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question"><span>Y a-t-il une garantie ?</span><span class="faq-toggle">+</span></button>
+                    <div class="faq-answer">Oui ! Satisfait ou remboursé pendant 30 jours. Si vous ne voyez pas d'amélioration ou si le précepteur ne convient pas, changement gratuit ou remboursement complet. Aucune question posée.</div>
                 </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Quels niveaux couvrez-vous ?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        Du primaire au lycée (CP à Terminale), ainsi que la préparation aux concours d'entrée et examens spécialisés. Tous nos précepteurs sont diplômés et qualifiés pour les niveaux qu'ils enseignent.
-                    </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question"><span>Quels niveaux couvrez-vous ?</span><span class="faq-toggle">+</span></button>
+                    <div class="faq-answer">Du primaire au lycée (CP à Terminale), ainsi que la préparation aux concours d'entrée et examens spécialisés. Tous nos précepteurs sont diplômés et qualifiés pour les niveaux qu'ils enseignent.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- =========== CTA =========== -->
     <section class="cta">
         <div class="container">
-            <div class="cta-content">
+            <div class="cta-content reveal">
                 <h2>Prêt à Changer la Trajectoire de Votre Enfant ?</h2>
                 <p>Réservez votre diagnostic gratuit dès aujourd'hui. Pas de carte bancaire nécessaire. Réponse en moins de 2 heures.</p>
                 <a href="#booking" class="btn btn-secondary btn-lg">Réserver Maintenant</a>
@@ -1667,52 +855,40 @@
         </div>
     </section>
 
-    <!-- Form Section -->
+    <!-- =========== FORM =========== -->
     <section class="form-section" id="booking">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
+                <span class="section-badge">GRATUIT & SANS ENGAGEMENT</span>
                 <h2 class="section-title">Réserver Votre Diagnostic Gratuit</h2>
                 <p class="section-subtitle">Remplissez le formulaire rapide ci-dessous</p>
             </div>
-
             <form id="bookingForm" class="form-container">
                 <div class="form-group">
                     <label class="form-label">Votre Nom Complet *</label>
-                    <input type="text" class="form-input" name="parentName" required placeholder="Ex: Jean Dupont">
+                    <input type="text" class="form-input" name="parentName" required placeholder="Ex : Amadou Keïta">
                 </div>
-
                 <div class="form-group">
                     <label class="form-label">Numéro WhatsApp *</label>
-                    <div style="display: flex; gap: 0.5rem; align-items: center;">
-                        <span style="font-weight: 700; color: var(--primary); font-size: 0.95rem;">+224</span>
-                        <input type="tel" class="form-input" name="phone" required placeholder="664262926" maxlength="9" style="flex: 1;">
+                    <div style="display:flex;gap:0.5rem;align-items:center;">
+                        <span style="font-weight:700;color:var(--primary);font-size:0.95rem;">+224</span>
+                        <input type="tel" class="form-input" name="phone" required placeholder="664262926" maxlength="9" style="flex:1;">
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label class="form-label">Nom de l'Enfant *</label>
-                    <input type="text" class="form-input" name="childName" required placeholder="Ex: Marie">
+                    <input type="text" class="form-input" name="childName" required placeholder="Ex : Marie">
                 </div>
-
                 <div class="form-group">
                     <label class="form-label">Niveau Scolaire *</label>
                     <select class="form-select" name="level" required>
                         <option value="">Sélectionner un niveau</option>
-                        <option value="cp">CP</option>
-                        <option value="ce1">CE1</option>
-                        <option value="ce2">CE2</option>
-                        <option value="cm1">CM1</option>
-                        <option value="cm2">CM2</option>
-                        <option value="6e">6ème</option>
-                        <option value="5e">5ème</option>
-                        <option value="4e">4ème</option>
-                        <option value="3e">3ème</option>
-                        <option value="2nde">2nde</option>
-                        <option value="1ere">1ère</option>
-                        <option value="tle">Terminale</option>
+                        <option>CP</option><option>CE1</option><option>CE2</option>
+                        <option>CM1</option><option>CM2</option>
+                        <option>6ème</option><option>5ème</option><option>4ème</option><option>3ème</option>
+                        <option>2nde</option><option>1ère</option><option>Terminale</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label class="form-label">Principal Défi *</label>
                     <select class="form-select" name="problem" required>
@@ -1727,76 +903,58 @@
                         <option value="other">Autre</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label class="form-label">Fréquence Souhaitée *</label>
                     <div class="form-radio-group">
-                        <label class="form-radio-label">
-                            <input type="radio" name="frequency" value="2" required>
-                            <span>2 fois par semaine</span>
-                        </label>
-                        <label class="form-radio-label">
-                            <input type="radio" name="frequency" value="3">
-                            <span>3 fois par semaine</span>
-                        </label>
-                        <label class="form-radio-label">
-                            <input type="radio" name="frequency" value="4">
-                            <span>4 fois par semaine</span>
-                        </label>
-                        <label class="form-radio-label">
-                            <input type="radio" name="frequency" value="flexible">
-                            <span>À déterminer lors du diagnostic</span>
-                        </label>
+                        <label class="form-radio-label"><input type="radio" name="frequency" value="2" required><span>2 fois par semaine</span></label>
+                        <label class="form-radio-label"><input type="radio" name="frequency" value="3"><span>3 fois par semaine</span></label>
+                        <label class="form-radio-label"><input type="radio" name="frequency" value="4"><span>4 fois par semaine</span></label>
+                        <label class="form-radio-label"><input type="radio" name="frequency" value="flexible"><span>À déterminer lors du diagnostic</span></label>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label class="form-label">Message Supplémentaire</label>
-                    <textarea class="form-textarea" name="message" placeholder="Toute information supplémentaire qui pourrait nous aider..."></textarea>
+                    <textarea class="form-textarea" name="message" placeholder="Toute information supplémentaire..."></textarea>
                 </div>
-
                 <div class="form-group">
                     <label class="form-checkbox-label">
                         <input type="checkbox" name="consent" required>
                         <span>J'accepte de recevoir des communications de Précepteur et je reconnais avoir lu la politique de confidentialité</span>
                     </label>
                 </div>
-
                 <button type="submit" class="btn btn-primary btn-lg form-submit">Réserver Mon Diagnostic Gratuit</button>
-                <p class="form-note">✓ Pas de carte bancaire • ✓ 100% gratuit • ✓ Réponse en moins de 2h</p>
+                <p class="form-note">✓ Pas de carte bancaire &nbsp;•&nbsp; ✓ 100% gratuit &nbsp;•&nbsp; ✓ Réponse en moins de 2h</p>
             </form>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- =========== FOOTER =========== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-section">
-                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
-                        <img src="https://raw.githubusercontent.com/mohaooa19-emp/pr-cepteur-/main/image/logo.jpg" alt="Précepteur Logo" style="width: 40px; height: 40px; border-radius: 10px;">
-                        <h4 style="margin: 0;">Précepteur</h4>
+                    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+                        <img src="https://raw.githubusercontent.com/mohaooa19-emp/pr-cepteur-/main/image/logo.jpg" alt="Logo" style="width:38px;height:38px;border-radius:9px;" onerror="this.style.display='none'">
+                        <h4 style="margin:0;">Précepteur</h4>
                     </div>
                     <p>Plus qu'un répétiteur. Un véritable accompagnement scolaire structuré avec résultats garantis.</p>
                 </div>
-
                 <div class="footer-section">
                     <h4>Nous Contacter</h4>
                     <p>📞 +224 664 262 926</p>
                     <p>📧 amadoukeitagn224@gmail.com</p>
-                    <p><a href="https://www.facebook.com/share/1CsK9DFUVD/" target="_blank">📱 Facebook</a></p>
+                    <p><a href="https://www.facebook.com/share/1CsK9DFUVD/" target="_blank" rel="noopener">📱 Facebook</a></p>
                 </div>
-
                 <div class="footer-section">
                     <h4>Navigation</h4>
                     <ul>
                         <li><a href="#hero">Accueil</a></li>
                         <li><a href="#method">Notre Méthode</a></li>
+                        <li><a href="#offers">Nos Offres</a></li>
                         <li><a href="#booking">Réserver</a></li>
                         <li><a href="#faq">FAQ</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-section">
                     <h4>Légal</h4>
                     <ul>
@@ -1806,167 +964,165 @@
                     </ul>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <p>&copy; 2024-2025 Précepteur. Créé avec ❤️ pour l'éducation en Guinée. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/224664262926?text=Bonjour%20Pr%C3%A9cepteur%2C%20je%20souhaitais%20r%C3%A9server%20un%20diagnostic%20gratuit" class="whatsapp-btn" title="Contactez-nous sur WhatsApp">💬</a>
+    <!-- WhatsApp -->
+    <a href="https://wa.me/224664262926?text=Bonjour%20Pr%C3%A9cepteur%2C%20je%20souhaitais%20r%C3%A9server%20un%20diagnostic%20gratuit" class="whatsapp-btn" title="WhatsApp">💬</a>
 
-    <!-- Success Modal -->
+    <!-- Modal -->
     <div id="successModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-icon">✅</div>
+                <span class="modal-icon">✅</span>
                 <h2>Réservation Confirmée !</h2>
             </div>
-            <p id="modalMessage" style="margin-bottom: 0;"></p>
+            <p id="modalMessage" style="margin-bottom:0;text-align:center;color:var(--gray-600);"></p>
             <button class="modal-close" onclick="closeModal()">Continuer sur WhatsApp</button>
         </div>
     </div>
 
     <script>
-        // ============================================
-        // PRÉCEPTEUR - JavaScript Avancé
-        // Performance et interaction optimisées
-        // ============================================
+        // ============ SPLASH SCREEN ============
+        var SPLASH_DURATION = 2600; // ms
 
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', function() {
-                const faqItem = this.parentElement;
-                const isActive = faqItem.classList.contains('active');
-                
-                document.querySelectorAll('.faq-item.active').forEach(item => {
-                    if (item !== faqItem) {
-                        item.classList.remove('active');
+        function closeSplash() {
+            var s = document.getElementById('splash');
+            s.classList.add('hidden');
+            setTimeout(function() { s.style.display = 'none'; }, 750);
+            document.body.style.overflow = '';
+        }
+
+        document.body.style.overflow = 'hidden';
+        setTimeout(closeSplash, SPLASH_DURATION);
+
+        // ============ SCROLL PROGRESS ============
+        window.addEventListener('scroll', function() {
+            var el = document.getElementById('scroll-progress');
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            var pct = docHeight > 0 ? (scrollTop / docHeight * 100) : 0;
+            el.style.width = pct + '%';
+        }, { passive: true });
+
+        // ============ HAMBURGER / MOBILE MENU ============
+        function toggleMenu() {
+            var btn  = document.getElementById('hamburger');
+            var menu = document.getElementById('mobileMenu');
+            btn.classList.toggle('open');
+            menu.classList.toggle('open');
+        }
+
+        // Close menu on outside click
+        document.addEventListener('click', function(e) {
+            var btn  = document.getElementById('hamburger');
+            var menu = document.getElementById('mobileMenu');
+            if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                btn.classList.remove('open');
+                menu.classList.remove('open');
+            }
+        });
+
+        // ============ SCROLL REVEAL ============
+        (function() {
+            if (!('IntersectionObserver' in window)) {
+                document.querySelectorAll('.reveal').forEach(function(el) {
+                    el.classList.add('visible');
+                });
+                return;
+            }
+            var obs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        obs.unobserve(entry.target);
                     }
                 });
-                
-                faqItem.classList.toggle('active');
+            }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+            document.querySelectorAll('.reveal').forEach(function(el) {
+                obs.observe(el);
+            });
+        })();
+
+        // ============ FAQ ============
+        document.querySelectorAll('.faq-question').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var item = this.parentElement;
+                var isOpen = item.classList.contains('active');
+                document.querySelectorAll('.faq-item.active').forEach(function(i) {
+                    if (i !== item) i.classList.remove('active');
+                });
+                item.classList.toggle('active', !isOpen);
             });
         });
 
-        // Form Handling
-        const form = document.getElementById('bookingForm');
-        form.addEventListener('submit', async (e) => {
+        // ============ FORM ============
+        var form = document.getElementById('bookingForm');
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
+            var phone = form.phone.value;
+            if (phone.length !== 9) { alert('Le numéro doit contenir 9 chiffres.'); return; }
 
-            const formData = {
-                parentName: form.parentName.value,
-                phone: '+224' + form.phone.value,
-                childName: form.childName.value,
-                level: form.level.value,
-                problem: form.problem.value,
-                frequency: form.frequency.value,
-                message: form.message.value
-            };
+            var freq = form.frequency.value;
+            var freqLabel = freq === 'flexible' ? 'À déterminer' : freq + ' fois/semaine';
 
-            // Validate phone
-            if (form.phone.value.length !== 9) {
-                alert('Le numéro doit contenir 9 chiffres');
-                return;
-            }
+            var msg = [
+                '*🎓 RÉSERVATION — DIAGNOSTIC GRATUIT*',
+                '',
+                '👤 Parent : ' + form.parentName.value,
+                '📞 Téléphone : +224' + phone,
+                '👧 Enfant : ' + form.childName.value,
+                '🎓 Niveau : ' + form.level.value,
+                '⚠️ Défi : ' + form.problem.value,
+                '📅 Fréquence : ' + freqLabel,
+                '💬 Message : ' + (form.message.value || 'Aucun'),
+                '',
+                '---',
+                '*Merci de confirmer la réservation du diagnostic gratuit !*'
+            ].join('\n');
 
-            // Create WhatsApp message
-            const message = `
-*🎓 RÉSERVATION - DIAGNOSTIC GRATUIT*
-
-👤 Parent: ${formData.parentName}
-📞 Téléphone: ${formData.phone}
-👧 Enfant: ${formData.childName}
-🎓 Niveau: ${formData.level}
-⚠️ Défi Principal: ${formData.problem}
-📅 Fréquence: ${formData.frequency} fois/semaine
-💬 Message: ${formData.message || 'Aucun'}
-
----
-*Merci de confirmer la réservation du diagnostic gratuit !*
-            `.trim();
-
-            // Show success modal
-            showModal(`Merci ${formData.parentName} ! Votre réservation pour ${formData.childName} a bien été reçue. Un de nos précepteurs vous contactera dans moins de 2 heures pour confirmer.`);
-
-            // Reset form
+            showModal('Merci ' + form.parentName.value + ' ! Votre réservation pour ' + form.childName.value + ' a bien été reçue. Nous vous contacterons dans moins de 2 heures.');
             form.reset();
-
-            // Open WhatsApp after 2 seconds
-            setTimeout(() => {
-                const encodedMessage = encodeURIComponent(message);
-                window.open(`https://wa.me/224664262926?text=${encodedMessage}`, '_blank');
+            setTimeout(function() {
+                window.open('https://wa.me/224664262926?text=' + encodeURIComponent(msg), '_blank');
             }, 2000);
         });
 
-        // Phone input - only allow numbers
-        const phoneInput = document.querySelector('input[name="phone"]');
-        phoneInput.addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/[^\d]/g, '').slice(0, 9);
+        // Phone — chiffres seulement
+        document.querySelector('input[name="phone"]').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '').slice(0, 9);
         });
 
-        // Modal Functions
-        function showModal(message) {
-            document.getElementById('modalMessage').textContent = message;
+        // ============ MODAL ============
+        function showModal(msg) {
+            document.getElementById('modalMessage').textContent = msg;
             document.getElementById('successModal').classList.add('active');
         }
-
         function closeModal() {
             document.getElementById('successModal').classList.remove('active');
         }
-
-        // Close modal on outside click
-        document.getElementById('successModal').addEventListener('click', (e) => {
-            if (e.target.id === 'successModal') {
-                closeModal();
-            }
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target.id === 'successModal') closeModal();
         });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', (e) => {
-                const href = link.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
+        // ============ SMOOTH SCROLL ============
+        document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                var href = this.getAttribute('href');
+                if (href === '#') return;
+                var target = document.querySelector(href);
+                if (target) {
                     e.preventDefault();
-                    const target = document.querySelector(href);
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
+                    window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
                 }
             });
         });
 
-        // Intersection Observer for animations
-        if ('IntersectionObserver' in window) {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -100px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('section').forEach(section => {
-                observer.observe(section);
-            });
-        }
-
-        // Prevent zoom on input focus
-        document.addEventListener('touchstart', function() {}, true);
-
-        // Performance logging
-        window.addEventListener('load', () => {
-            console.log('✅ Précepteur Premium - Chargé et prêt !');
-        });
+        console.log('✅ Précepteur v2 — Chargé et prêt !');
     </script>
 </body>
 </html>
